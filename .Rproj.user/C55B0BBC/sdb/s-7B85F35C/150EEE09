@@ -1,0 +1,16 @@
+{
+    "contents" : "# remove all elements for a clean start\nrm(list=ls(all=TRUE))\n\n## @knitr LoadData\nload(\"./Data/Raw/25281-0001-Data.rda\")\nload(\"./Data/Raw/29282-0001-Data.rda\")\n\nds01 <- da25281.0001\nds02 <- da29282.0001\nstr(ds01)\n\nds0 <- merge(ds01,ds02,by=\"M2ID\")\n\n\nmyvars <- c(\"v1\", \"v2\", \"v3\",...)\nds0Core <- mydata[myvars]",
+    "created" : 1415397089344.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1909997486",
+    "id" : "150EEE09",
+    "lastKnownWriteTime" : 1415394198,
+    "path" : "~/GitHub/Sleep-MIDUS-Whitehall/Scripts/Data/dsL.R",
+    "project_path" : "Scripts/Data/dsL.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
