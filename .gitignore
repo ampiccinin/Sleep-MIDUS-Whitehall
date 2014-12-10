@@ -1,0 +1,4 @@
+Data/Raw/*
+Data/Derived/*
+!Data/Raw/README.md
+!Data/Derived/README.md

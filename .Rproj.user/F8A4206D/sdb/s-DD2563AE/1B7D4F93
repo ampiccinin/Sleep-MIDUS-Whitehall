@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1418236113918.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1B7D4F93",
+    "lastKnownWriteTime" : 31244014472658945,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "da25281.0001",
+        "contentUrl" : "content?title=da25281.0001&file=a08f496831a744529bb0bb7301f7c136.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 100,
+        "totalObservations" : 4512,
+        "variables" : 222
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
