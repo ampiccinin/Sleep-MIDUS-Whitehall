@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1418236309139.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8D9C3974",
+    "lastKnownWriteTime" : 31244014472658945,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "ds01",
+        "contentUrl" : "content?title=ds01&file=52130483b4444817844d9e52286a80c8.htm",
+        "displayedObservations" : "1000",
+        "displayedVariables" : 100,
+        "totalObservations" : "4512",
+        "variables" : "222"
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
