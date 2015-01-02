@@ -17,9 +17,10 @@ print(varnames)
 a <- c("test")
 b <- c('test')
 
+
 # Object with MIDUS II sleep variables from ds0.
 MIDUS_sleepvars <- c(
-  'B4SSQ_S1', 'B4SSQ_S2',   'B4SSQ_S3',  'B4SSQ_S5', 
+  'B4SSQ_S1',  'B4SSQ_S2',  'B4SSQ_S3',  'B4SSQ_S5', 
   'B4SSQ_S6',  'B4S4',      'B4S5',      'B4S7',       'B4S11A',  'B4S11B',     'B4S11C',   
   'B4S11D',    'B4S11E',    'B4S11F',    'B4S11G',    'B4S11H',    'B4S11I',    'B4S11J', 
   'B4AD17',    'B4AD27',    'B4AD37',    'B4AD47',    'B4AD57',    'B4AD67',    'B4AD77',  
@@ -33,5 +34,12 @@ MIDUS_sleepvars <- c(
   'B14AD115',  'B14AD215',  'B14AD315',  'B14AD415',  'B14AD515',  'B14AD615',  'B14AD715', 
   'B14AD115A', 'B14AD215A', 'B14AD315A', 'B14AD415A', 'B14AD515A', 'B14AD615A', 'B14AD715A')
 
+# Object with MIDUS II cognitive variables from ds0.
+MIDUS_cogvars <- c(
+  'B3TCOMPZ3', 'B3TEMZ3',   'B3TEFz3')
 
+# MIDUS_cogvars codes:
+# B3TCOMPZ3 = Z-score Brief Test of Adult Cognition by Telephone for complete sample (MIDUS + Milkwaukee)
+# B3TEMZ3 = Z-score Episodic memory computer for complete sample (MIDUS + Milwaukee)
+# B3TEFZ3 = Z-score executive functioning for complete sample (MIDUS + Milwaulkee)
 ds0Core <- data.frame(ds0[,myvars])
