@@ -17,6 +17,9 @@ print(varnames)
 a <- c("test")
 b <- c('test')
 
+# Object with MIDUS II participant variables from ds0.
+MIDUS_pvars <- c(
+  'M2ID',      'B1PAGE_M2', 'B1PGENDER', 'B4ZAGE')
 
 # Object with MIDUS II sleep variables from ds0.
 MIDUS_sleepvars <- c(
@@ -37,6 +40,12 @@ MIDUS_sleepvars <- c(
 # Object with MIDUS II cognitive variables from ds0.
 MIDUS_cogvars <- c(
   'B3TCOMPZ3', 'B3TEMZ3',   'B3TEFz3')
+
+# MIDUS_pvars codes:
+# M2ID = Participant ID number
+# B1PAGE_M2 = Age deterimined by subtracting DOB_Final from b1ipdate
+# B1PGENDER = Gender
+# B4ZAGE = Respondent age at P4 data collection (Biomarker project)
 
 # MIDUS_cogvars codes:
 # B3TCOMPZ3 = Z-score Brief Test of Adult Cognition by Telephone for complete sample (MIDUS + Milkwaukee)
