@@ -56,3 +56,9 @@ MIDUS_all <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 'B4ZAGE',
 # B3TEMZ3 = Z-score Episodic memory computer for complete sample (MIDUS + Milwaukee)
 # B3TEFZ3 = Z-score executive functioning for complete sample (MIDUS + Milwaulkee)
 
+
+#Variables pulled out of ds0
+dspvars <- ds0[MIDUS_pvars]
+dscog <- ds0[MIDUS_cogvars]
+dssleep <-ds0[MIDUS_sleepvars]
+ds_ALL <-ds0[MIDUS_all]
