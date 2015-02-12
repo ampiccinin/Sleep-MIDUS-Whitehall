@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1423748620323.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F48261CF",
+    "lastKnownWriteTime" : 31244014472658945,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "ds_ALL",
+        "contentUrl" : "content?title=ds_ALL&file=2f460ffcfd7948deb8a7107c63d37e89.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 76,
+        "totalObservations" : 4615,
+        "variables" : 76
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
