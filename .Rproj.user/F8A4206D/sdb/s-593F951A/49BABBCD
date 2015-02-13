@@ -1,21 +1,21 @@
 {
     "contents" : "",
-    "created" : 1423788512867.000,
+    "created" : 1423823437249.000,
     "dirty" : false,
     "encoding" : "",
     "folds" : "",
     "hash" : "0",
-    "id" : "99233293",
+    "id" : "49BABBCD",
     "lastKnownWriteTime" : 31244014472658945,
     "path" : null,
     "project_path" : null,
     "properties" : {
-        "caption" : "ds0",
-        "contentUrl" : "content?title=ds0&file=74646dfa3c0745c1a4cd76118c407168.htm",
-        "displayedObservations" : "1000",
+        "caption" : "ds0_nomissing",
+        "contentUrl" : "content?title=ds0_nomissing&file=6a0f347a061b48e6abd850bdbbdccc04.htm",
+        "displayedObservations" : 229,
         "displayedVariables" : 85,
-        "totalObservations" : "4244",
-        "variables" : "85"
+        "totalObservations" : 229,
+        "variables" : 84
     },
     "source_on_save" : false,
     "type" : "r_dataframe"

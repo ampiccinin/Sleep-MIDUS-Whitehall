@@ -11,11 +11,11 @@
     "project_path" : null,
     "properties" : {
         "caption" : "ds00_nomissing",
-        "contentUrl" : "content?title=ds00_nomissing&file=07998eab6a244d218b70183a79da8328.htm",
-        "displayedObservations" : 913,
+        "contentUrl" : "content?title=ds00_nomissing&file=4c10d52182fc45fa9156b1c0de901150.htm",
+        "displayedObservations" : "913",
         "displayedVariables" : 30,
-        "totalObservations" : 913,
-        "variables" : 29
+        "totalObservations" : "913",
+        "variables" : "28"
     },
     "source_on_save" : false,
     "type" : "r_dataframe"

@@ -1,21 +1,21 @@
 {
     "contents" : "",
-    "created" : 1423822775926.000,
+    "created" : 1423823438894.000,
     "dirty" : false,
     "encoding" : "",
     "folds" : "",
     "hash" : "0",
-    "id" : "A50208D2",
+    "id" : "AE7661EF",
     "lastKnownWriteTime" : 31244014472658945,
     "path" : null,
     "project_path" : null,
     "properties" : {
         "caption" : "ds0daily_nomissing",
-        "contentUrl" : "content?title=ds0daily_nomissing&file=a2c9cddb41dd4acaa78023b1afe5a0af.htm",
+        "contentUrl" : "content?title=ds0daily_nomissing&file=b7ef4b3b2a8a47349fa1d20c59879672.htm",
         "displayedObservations" : 240,
-        "displayedVariables" : 73,
+        "displayedVariables" : 72,
         "totalObservations" : 240,
-        "variables" : 72
+        "variables" : 71
     },
     "source_on_save" : false,
     "type" : "r_dataframe"
