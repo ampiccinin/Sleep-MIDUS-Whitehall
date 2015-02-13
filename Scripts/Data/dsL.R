@@ -80,6 +80,20 @@ MIDUS_all <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 'B4ZAGE',
 # B3TEFZ3 = Z-score executive functioning for complete sample (MIDUS + Milwaulkee)
 
 
+#object with MIDUS II variables to control for
+MIDUS_controls <- c('B1PF8A', 'B1PB1', 'B1SBMI', 'B1SA11T', 'B1SA1', 'B1PA1', 'B1PA1', 'B1PA6A', 'B1SA11S')
+
+##codes:
+#race B1PF8A
+#education B1PB1
+#BMI - B1SBMI
+#depression - B1SA11T
+#health status - B1SA1
+#physical health - B1PA1
+#psychological health - B1PA1
+#stroke - B1PA6A
+#hypertension - B1SA11S
+
 #Variables pulled out of ds0
 dspvars <- ds0[MIDUS_pvars]
 dscog <- ds0[MIDUS_cogvars]
