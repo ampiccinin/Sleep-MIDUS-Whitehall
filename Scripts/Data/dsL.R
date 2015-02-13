@@ -128,5 +128,14 @@ MIDUS_sleepdaily <- names(ds0) %in% c(
   'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A')
 ds00 <- ds0[!MIDUS_sleepdaily]
 
+
+
+# list rows of data that have missing values 
+ds00[!complete.cases(ds00),]
+
+# create new dataset without missing data 
+ds00_nomissing <- na.omit(ds00)
+ds0_nomissing <- na.omit(ds0)
+
 #descriptive stats on ds0
 describe(ds0)
