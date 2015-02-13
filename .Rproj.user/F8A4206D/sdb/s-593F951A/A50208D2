@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1423822775926.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A50208D2",
+    "lastKnownWriteTime" : 31244014472658945,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "ds0daily_nomissing",
+        "contentUrl" : "content?title=ds0daily_nomissing&file=a2c9cddb41dd4acaa78023b1afe5a0af.htm",
+        "displayedObservations" : 240,
+        "displayedVariables" : 73,
+        "totalObservations" : 240,
+        "variables" : 72
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
