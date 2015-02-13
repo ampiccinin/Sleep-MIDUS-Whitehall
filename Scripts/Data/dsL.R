@@ -81,7 +81,7 @@ MIDUS_all <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 'B4ZAGE',
 
 
 #object with MIDUS II variables to control for
-MIDUS_controls <- c('B1PF8A', 'B1PB1', 'B1SBMI', 'B1SA11T', 'B1SA1', 'B1PA1', 'B1PA1', 'B1PA6A', 'B1SA11S')
+MIDUS_controls <- c('M2ID', 'B1PF8A', 'B1PB1', 'B1SBMI', 'B1SA11T', 'B1SA1', 'B1PA1', 'B1PA1', 'B1PA6A', 'B1SA11S')
 
 ##codes:
 #race B1PF8A
@@ -100,5 +100,8 @@ dscog <- ds0[MIDUS_cogvars]
 dssleep <-ds0[MIDUS_sleepvars]
 ds_ALL <-ds0[MIDUS_all]
 
+dscontrol <- ds03[MIDUS_controls]
+
+ds0 <- merge(ds_ALL,dscontrol,by="M2ID")
 
 describe(ds_ALL)

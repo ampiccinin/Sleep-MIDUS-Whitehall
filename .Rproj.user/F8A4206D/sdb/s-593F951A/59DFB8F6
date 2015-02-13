@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1423788406020.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "59DFB8F6",
+    "lastKnownWriteTime" : 31244014472658945,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "dscontrol",
+        "contentUrl" : "content?title=dscontrol&file=cde6b566e7334aa99b238cf23c22da9b.htm",
+        "displayedObservations" : "1000",
+        "displayedVariables" : 9,
+        "totalObservations" : "4963",
+        "variables" : "10"
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
