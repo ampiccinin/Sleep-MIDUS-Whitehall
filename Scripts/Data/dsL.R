@@ -5,6 +5,29 @@ rm(list=ls(all=TRUE))
 load("./Data/Raw/25281-0001-Data.rda")
 load("./Data/Raw/29282-0001-Data.rda")
 
+
+#install psyc package
+install.packages("ctv")
+library(ctv)
+task.views("Psychometrics")
+install.packages("psych")
+
+#install foreign package
+install.packages("foreign")
+library(foreign)
+
+install.packages("Hmisc")
+library(Hmisc)
+
+
+#load psych pkgmydata <- ds_03
+library(psych)
+
+
+mydata <- spss.get("./Data/Raw/04652-0001-Data.sav", use.value.labels=TRUE)
+ds03 <- mydata
+
+
 ds01 <- da25281.0001
 ds02 <- da29282.0001
 str(ds01)
@@ -62,3 +85,6 @@ dspvars <- ds0[MIDUS_pvars]
 dscog <- ds0[MIDUS_cogvars]
 dssleep <-ds0[MIDUS_sleepvars]
 ds_ALL <-ds0[MIDUS_all]
+
+
+describe(ds_ALL)
