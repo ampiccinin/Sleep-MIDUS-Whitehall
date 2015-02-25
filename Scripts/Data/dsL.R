@@ -12,6 +12,23 @@ library(ctv)
 task.views("Psychometrics")
 install.packages("psych")
 
+
+
+General Hypotheses
+There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores.
+There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores. This association will be U-shaped in that lowest scores are associated with short and long sleep (replication of Ferrie et al.)
+Sleep duration and sleep disturbance together are better predictors of cognitive score compared to each parameter separately.
+Pittsburgh Sleep Quality Inventory:
+  Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
+Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
+On a daily level…
+Hypothesis 1: On average, individuals who rate higher difficulty getting to sleep have poorer cognition relative to individuals who rate lower difficulty getting to sleep.
+Hypothesis 2: On average, individuals who report higher instances of having difficulty of getting back to sleep have poorer cognition relative to individuals who report lower instances of having difficulty getting back to sleep.
+Hypothesis 3: On average, individuals who rate lower overall quality of sleep on the previous night have poorer cognition relative to individuals who report higher overall quality of sleep on the previous night.
+
+Notes: Want to look for gender differences.
+
+
 #install foreign package
 install.packages("foreign")
 library(foreign)
@@ -36,7 +53,7 @@ ds0 <- merge(ds01,ds02,by="M2ID", all=TRUE)
 
 
 # Object with MIDUS II participant variables from ds0.
-MIDUS_pvars <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 'B4ZAGE')
+MIDUS_pvars <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x')
 
 # Object with MIDUS II sleep variables from ds0.
 MIDUS_sleepvars <- c( 'M2ID',
@@ -56,7 +73,7 @@ MIDUS_cogvars <- c('M2ID', 'B3TCOMPZ3', 'B3TEMZ3', 'B3TEFZ3')
 
 
 # Object with all MIDUS II variables of interest.
-MIDUS_all <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 'B4ZAGE', 
+MIDUS_all <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 
                'B4S4',      'B4S5',      'B4S7',    
                'B4S11A',   'B4S11B',     'B4S11C',    'B4S11D',    'B4S11E',    'B4S11F',    'B4S11G',      'B4S11H',    'B4S11I',    'B4S11J', 
                'B4AD17',    'B4AD27',    'B4AD37',    'B4AD47',    'B4AD57',    'B4AD67',    'B4AD77',  
@@ -110,11 +127,10 @@ dspvars <- ds0[MIDUS_pvars]
 dscog <- ds0[MIDUS_cogvars]
 dssleep <-ds0[MIDUS_sleepvars]
 ds_ALL <-ds0[MIDUS_all]
-
 dscontrol <- ds03[MIDUS_controls]
 
+#ds0 is now all variables of interest
 ds0 <- merge(ds_ALL,dscontrol,by="M2ID")
-
 
 #ds0 with daily sleep variables dropped
 MIDUS_sleepdaily <- names(ds0) %in% c(
@@ -128,14 +144,24 @@ MIDUS_sleepdaily <- names(ds0) %in% c(
   'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A')
 ds00 <- ds0[!MIDUS_sleepdaily]
 
-
-
-# list rows of data that have missing values 
-ds00[!complete.cases(ds00),]
+#ds0 with PSQ sleep variables dropped
+MIDUS_sleepPSQ <- names(ds0) %in% c(
+  'B4S4', 'B4S5', 'B4S7', 'B4S11A', 'B4S11B', 'B4S11C', 'B4S11D',    
+  'B4S11E', 'B4S11F', 'B4S11G', 'B4S11H', 'B4S11I', 'B4S11J')
+ds0daily <- ds0[!MIDUS_sleepPSQ] 
 
 # create new dataset without missing data 
 ds00_nomissing <- na.omit(ds00)
 ds0_nomissing <- na.omit(ds0)
+ds0daily_nomissing <- na.omit(ds0daily)
 
-#descriptive stats on ds0
-describe(ds0)
+########## DESCRIPTIVE STATISTICS
+
+##Run descriptive stats on ds00 (dataset with daily sleep variables dropped)
+
+#with psych pkg
+library(psych)
+describe(ds00_nomissing)
+
+library(psych)
+describe(ds0daily_nomissing)

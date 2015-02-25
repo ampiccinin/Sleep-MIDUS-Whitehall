@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1424709531227.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C4DD96BC",
+    "lastKnownWriteTime" : 31244014472658945,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "ds00_nomissing",
+        "contentUrl" : "content?title=ds00_nomissing&file=2b114999965f4252aca9fd1433b23e62.htm",
+        "displayedObservations" : 913,
+        "displayedVariables" : 29,
+        "totalObservations" : 913,
+        "variables" : 28
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
