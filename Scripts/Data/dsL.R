@@ -201,4 +201,6 @@ residuals(fit) # residuals
 anova(fit) # anova table 
 vcov(fit) # covariance matrix for model parameters 
 influence(fit) # regression diagnostics
-
+# diagnostic plots 
+layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
+plot(fit)
