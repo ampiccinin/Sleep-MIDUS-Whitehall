@@ -173,7 +173,8 @@ ds0_nomissing <- na.omit(ds0)
 ds0daily_nomissing <- na.omit(ds0daily)
 
 
-
+# Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
+SDur2 <- SDur * SDur
 
 ########## DESCRIPTIVE STATISTICS
 
