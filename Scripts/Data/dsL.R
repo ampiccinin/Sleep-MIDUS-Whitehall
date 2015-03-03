@@ -14,17 +14,28 @@ install.packages("psych")
 
 
 
-General Hypotheses
-There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores.
-There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores. This association will be U-shaped in that lowest scores are associated with short and long sleep (replication of Ferrie et al.)
-Sleep duration and sleep disturbance together are better predictors of cognitive score compared to each parameter separately.
-Pittsburgh Sleep Quality Inventory:
-  Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
-Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
-On a daily levelâ€¦
-Hypothesis 1: On average, individuals who rate higher difficulty getting to sleep have poorer cognition relative to individuals who rate lower difficulty getting to sleep.
-Hypothesis 2: On average, individuals who report higher instances of having difficulty of getting back to sleep have poorer cognition relative to individuals who report lower instances of having difficulty getting back to sleep.
-Hypothesis 3: On average, individuals who rate lower overall quality of sleep on the previous night have poorer cognition relative to individuals who report higher overall quality of sleep on the previous night.
+# General Hypotheses
+# There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores. (Regress Cognition on sleep disturbance)
+# There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.  (Regress Cognition on sleep duration & sleepduration squared)
+#       This association will be U-shaped in that lowest scores are associated with short and long sleep (replication of Ferrie et al.)
+# Sleep duration and sleep disturbance together are better predictors of cognitive score compared to each predictor separately.
+#                       (Regress Cognition on sleep disturbance, sleep duration & sleepduration squared)
+
+# Pittsburgh Sleep Quality Inventory:
+# Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
+# Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
+#     These could also be regressions, to keep with same analysis as above. 
+#       Wherever you are just looking at the association between two variables, you could use correlation.
+
+# On a daily level€¦
+# Hypothesis 1: On average, individuals who rate higher difficulty getting to sleep have poorer cognition 
+#                               relative to individuals who rate lower difficulty getting to sleep.
+# Hypothesis 2: On average, individuals who report higher instances of having difficulty of getting back to sleep have poorer cognition 
+#                               relative to individuals who report lower instances of having difficulty getting back to sleep.
+# Hypothesis 3: On average, individuals who rate lower overall quality of sleep on the previous night have poorer cognition 
+#                              relative to individuals who report higher overall quality of sleep on the previous night.
+
+# For these, I think you were going to compute average for each person. Once you do this, you could just use regression again. 
 
 Notes: Want to look for gender differences.
 
