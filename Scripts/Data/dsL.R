@@ -43,7 +43,11 @@ install.packages("psych")
 #   http://www.statmethods.net/stats/regression.html
 #   
 
-Notes: Want to look for gender differences.
+# Notes: Want to look for sex differences.
+#   If you code sex as male=0 and female=1, you can include sex as another predictor in your regression
+#              and the parameter estimate will equal the mean difference between men and women.
+#   I tend to label such a variable "female" so I remember which is the reference group
+#      (i.e., the ref group is male, so the estimate tells how much higher (or lower if it is negative) the women are)
 
 
 #install foreign package
