@@ -188,6 +188,8 @@ library(psych)
 describe(ds0daily_nomissing)
 
 
+# For Correlations, see: http://www.statmethods.net/stats/correlations.html
+
 
 # GRAPHICAL look at data
 
