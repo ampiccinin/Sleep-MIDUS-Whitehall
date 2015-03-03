@@ -49,6 +49,11 @@ install.packages("psych")
 #   I tend to label such a variable "female" so I remember which is the reference group
 #      (i.e., the ref group is male, so the estimate tells how much higher (or lower if it is negative) the women are)
 
+# Something we have not talked about is that since older people tend to not sleep as well,
+#                 you should probably also include age as a predictor in your regressions.
+#  You might also want to look at the interaction between age and sleep disturbance (etc) in case poor sleep has a greater effect in older (or younger) adults
+#  If you want to create an interaction term, you should "center" each variable first by subtracting the mean from each person's score
+#        and then multiply the centered variables together
 
 #install foreign package
 install.packages("foreign")
@@ -181,6 +186,8 @@ ds0daily_nomissing <- na.omit(ds0daily)
 # I am hoping you can edit these examples with your real variable names and get them to run
 
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
+#  Get the mean SleepDuration, then subtract it from each person's score, then multiply the centered variables together
+
 SDur2 <- SDur * SDur
 
 ########## DESCRIPTIVE STATISTICS
