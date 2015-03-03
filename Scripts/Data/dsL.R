@@ -173,6 +173,9 @@ ds0_nomissing <- na.omit(ds0)
 ds0daily_nomissing <- na.omit(ds0daily)
 
 
+# I don't know the names of your actual variables, so I've just made some up below
+# I am hoping you can edit these examples with your real variable names and get them to run
+
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
 SDur2 <- SDur * SDur
 
