@@ -189,6 +189,23 @@ describe(ds0daily_nomissing)
 
 
 
+# GRAPHICAL look at data
+
+# Basic Scatterplot Matrix - so you can scan them all quickly
+pairs(~cog1+cog2+SDist+Sdur,data=ds0_nomissing, 
+      main="Scatterplot Matrix")
+
+# If you want to highlight just one Simple Scatterplot
+attach(ds0_nomissing)
+plot(SDist, cog, main="Scatterplot of Cognition by Sleep Disturbance", 
+     xlab="Sleep Disturbance", ylab="Cognitive Variable ", pch=19)
+
+# you can add  fit lines to your scatterplot with:
+abline(lm(cog~SDist), col="red") # regression line (y~x) 
+
+# If you want to make visually stunning graphs for your poster
+# you can try playing around with ggplot2: see  http://www.cookbook-r.com/Graphs/ 
+# but lets get the basics done first.
 
 # Multiple Linear Regression Example 
 fit <- lm(cog ~ SDist + SDur + SDur2, data=mydata)
