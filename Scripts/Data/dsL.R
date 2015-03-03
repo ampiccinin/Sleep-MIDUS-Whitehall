@@ -37,6 +37,12 @@ install.packages("psych")
 
 # For these, I think you were going to compute average for each person. Once you do this, you could just use regression again. 
 
+# Try some of the following resources for Regression in R:
+
+#   http://www.google.ca/webhp?nord=1&gws_rd=cr&ei=ZTn1VIOOCYHuoASLkYGoCg#nord=1&q=regression+in+R 
+#   http://www.statmethods.net/stats/regression.html
+#   
+
 Notes: Want to look for gender differences.
 
 
@@ -166,6 +172,9 @@ ds00_nomissing <- na.omit(ds00)
 ds0_nomissing <- na.omit(ds0)
 ds0daily_nomissing <- na.omit(ds0daily)
 
+
+
+
 ########## DESCRIPTIVE STATISTICS
 
 ##Run descriptive stats on ds00 (dataset with daily sleep variables dropped)
@@ -176,3 +185,19 @@ describe(ds00_nomissing)
 
 library(psych)
 describe(ds0daily_nomissing)
+
+
+
+
+# Multiple Linear Regression Example 
+fit <- lm(cog ~ SDist + SDur + SDur2, data=mydata)
+summary(fit) # show results
+# Other useful functions 
+coefficients(fit) # model coefficients
+confint(fit, level=0.95) # CIs for model parameters 
+fitted(fit) # predicted values
+residuals(fit) # residuals
+anova(fit) # anova table 
+vcov(fit) # covariance matrix for model parameters 
+influence(fit) # regression diagnostics
+
