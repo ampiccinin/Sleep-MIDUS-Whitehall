@@ -20,14 +20,14 @@ install.packages("psych")
 #       This association will be U-shaped in that lowest scores are associated with short and long sleep (replication of Ferrie et al.)
 # Sleep duration and sleep disturbance together are better predictors of cognitive score compared to each predictor separately.
 #                       (Regress Cognition on sleep disturbance, sleep duration & sleepduration squared)
-
+ 
 # Pittsburgh Sleep Quality Inventory:
 # Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
 # Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
 #     These could also be regressions, to keep with same analysis as above. 
 #       Wherever you are just looking at the association between two variables, you could use correlation.
 
-# On a daily level€¦
+# On a daily level??
 # Hypothesis 1: On average, individuals who rate higher difficulty getting to sleep have poorer cognition 
 #                               relative to individuals who rate lower difficulty getting to sleep.
 # Hypothesis 2: On average, individuals who report higher instances of having difficulty of getting back to sleep have poorer cognition 
@@ -188,6 +188,8 @@ ds0daily_nomissing <- na.omit(ds0daily)
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
 #  Get the mean SleepDuration, then subtract it from each person's score, then multiply the centered variables together
 
+SDur <- c('B4S4')
+
 SDur2 <- SDur * SDur
 
 ########## DESCRIPTIVE STATISTICS
@@ -237,3 +239,17 @@ influence(fit) # regression diagnostics
 # diagnostic plots 
 layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
 plot(fit)
+
+
+
+##LINEAR REGRESSION MODELS
+
+# Pittsburgh Sleep Quality Inventory:
+# Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
+fit <- lm(B3TEMZ3 + B3TEFZ3 ~ B4S5, data=ds00_nomissing)
+summary(fit) # show results
+
+
+# Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
+fit <- lm(B3TEMZ3 + B3TEFZ3 ~ B4S11A + B4S11B + B4S11C + B4S11D + B4S11E + B4S11F + B4S11G + B4S11H + B4S11I + B4S11J, data=ds00_nomissing)
+summary(fit) # show results
