@@ -353,11 +353,44 @@ Squal <- as.numeric(levels(B4S5))[B4S5]
 
 # Pittsburgh Sleep Quality Inventory:
 # Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
-fit <- lm(B4S4 ~ SDIS.sum, data=ds00_nomissing)
-summary(fit) # show results
+
+#memory
+fit_h1_1 <- lm(B3TEMZ3 ~ SQUAL, data=ds_PSQ)
+summary(fit_h1_1) # show results
+
+#EF
+fit_h1_2 <- lm(B3TEFZ3 ~ SQUAL, data=ds_PSQ)
+summary(fit_h1_2) # show results
+
+# Hypothesis 2: There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.
+
+#memory
+fit_h2_1 <- lm(B3TEMZ3 ~ Sdur1 + Sdur, data=ds_PSQ)
+summary(fit_h2_1) # show results
+
+#EF
+fit_h2_2 <- lm(B3TEFZ3 ~ Sdur1 + Sdur, data=ds_PSQ)
+summary(fit_h2_2) # show results
+
+# Hypothesis 3: There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores.
+
+#memory
+fit_h3_1 <- lm(B3TEMZ3 ~ SDis, data=ds_PSQ)
+summary(fit_h3_1) # show results
+
+#EF
+fit_h3_2 <- lm(B3TEFZ3 ~ SDis, data=ds_PSQ)
+summary(fit_h3_2) # show results
 
 
-# Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
-fit <- lm(B3TEMZ3 + B3TEFZ3 ~ B4S11A + B4S11B + B4S11C + B4S11D + B4S11E + B4S11F + B4S11G + B4S11H + B4S11I + B4S11J, data=ds00_nomissing)
-summary(fit) # show results
+#Hypothesis 4: Sleep duration and sleep disturbance together are better predictors of cognitive score compared to each predictor separately.
 
+#memory
+fit_h4_1 <- lm(B3TEMZ3 ~ SDis + Sdur1 + Sdur, data=ds_PSQ)
+summary(fit_h4_1) # show results
+
+#EF
+fit_h4_2 <- lm(B3TEFZ3 ~ SDis + Sdur1 + Sdur, data=ds_PSQ)
+summary(fit_h4_2) # show results
+
+#                       (Regress Cognition on sleep disturbance, sleep duration & sleepduration squared)
