@@ -63,7 +63,7 @@ library(Hmisc)
 
 #load psych pkgmydata <- ds_03
 library(foreign)
-ds03 <- spss.get("C:\\Users\\Samer Rohani\\Documents\\GitHub\\Sleep-MIDUS-Whitehall\\Data\\Raw\\04652-0001-Data.sav", use.value.labels=TRUE)
+ds03 <- spss.get("./Raw/04652-0001-Data.sav", use.value.labels=TRUE)
 
 
 ds01 <- da25281.0001
