@@ -335,7 +335,7 @@ abline(lm(B3TEMZ3~SDis), col="red") # regression line (y~x)
 # you can try playing around with ggplot2: see  http://www.cookbook-r.com/Graphs/ 
 # but lets get the basics done first.
 
-# Multiple Linear Regression Example 
+# Multiple Linear Regression for Memory 
 fit <- lm(B3TEMZ3 ~ SDis + DurationC + Duration2, data=ds)
 summary(fit) # show results
 # Other useful functions 
@@ -350,6 +350,21 @@ influence(fit) # regression diagnostics
 layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
 plot(fit)
 
+
+# Multiple Linear Regression for EF 
+fit <- lm(B3TEFZ3 ~ SDis + DurationC + Duration2, data=ds)
+summary(fit) # show results
+# Other useful functions 
+coefficients(fit) # model coefficients
+confint(fit, level=0.95) # CIs for model parameters 
+fitted(fit) # predicted values
+residuals(fit) # residuals
+anova(fit) # anova table 
+vcov(fit) # covariance matrix for model parameters 
+influence(fit) # regression diagnostics
+# diagnostic plots 
+layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
+plot(fit)
 
 
 ##LINEAR REGRESSION MODELS
