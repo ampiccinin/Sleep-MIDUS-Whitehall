@@ -280,8 +280,9 @@ B4S4_2 <- B4S4 * B4S4
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
 #  Get the mean SleepDuration, then subtract it from each person's score, then multiply the centered variables together
 
+ds00_nomissing$Sdur1 <- ds00_nomissing$B4S4 - 6.89
+ds00_nomissing$Sdur <- ds00_nomissing$Sdur1 * ds00_nomissing$Sdur1
 
-B4S4_2 <- B4S4 * B4S4
 
 ########## DESCRIPTIVE STATISTICS
 
@@ -301,7 +302,7 @@ describe(ds0daily_nomissing)
 # GRAPHICAL look at data
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~cog1+cog2+SDist+Sdur,data=ds0_nomissing, 
+pairs(~B3TEMZ3+B3TEFZ3+SDIS.sum+Sdur,data=ds00_nomissing, 
       main="Scatterplot Matrix")
 
 # If you want to highlight just one Simple Scatterplot
@@ -340,7 +341,7 @@ Squal <- as.numeric(levels(B4S5))[B4S5]
 
 # Pittsburgh Sleep Quality Inventory:
 # Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
-fit <- lm(B3TEFZ3 ~ SQUAL, data=ds00_nomissing)
+fit <- lm(B4S4 ~ SDIS.sum, data=ds00_nomissing)
 summary(fit) # show results
 
 
