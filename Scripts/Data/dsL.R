@@ -269,13 +269,10 @@ ds00_nomissing$SDISJ = as.numeric(ds00_nomissing$SDISJ)
 is.numeric(ds00_nomissing$SDISA)
 
 
-# Convert the column to a factor
-data$scode <- factor(data$scode)
-# subject sex control cond1 cond2 scode
-#       1   M     7.9  12.3  10.7     1
-#       2   F     6.3  10.6  11.1     2
-#       3   F     9.5  13.1  13.8     2
-#       4   M    11.5  13.4  12.9     1
+#Syntax to SUM Sleep Disturbance scores
+ds00_nomissing$SDIS.sum <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomissing$SDISC + ds00_nomissing$SDISD + ds00_nomissing$SDISE + ds00_nomissing$SDISF + ds00_nomissing$SDISG + ds00_nomissing$SDISH + ds00_nomissing$SDISI + ds00_nomissing$SDISJ
+
+B4S4_2 <- B4S4 * B4S4
 
 # I don't know the names of your actual variables, so I've just made some up below
 # I am hoping you can edit these examples with your real variable names and get them to run
