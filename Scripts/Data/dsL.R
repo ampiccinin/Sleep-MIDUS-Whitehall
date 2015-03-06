@@ -320,7 +320,7 @@ pairs(~B3TEMZ3+B3TEFZ3+SDis+Sdur,data=ds_PSQ,
       main="Scatterplot Matrix")
 
 # what is the id of the person with a potential outlier?
-ds <- ds[order(ds$SDur1,decreasing=T),]
+ds <- ds_PSQ[order(ds_PSQ$SDur1,decreasing=T),]
 head(ds)
 
 # If you want to highlight just one Simple Scatterplot
