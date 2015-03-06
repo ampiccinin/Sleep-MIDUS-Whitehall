@@ -275,6 +275,7 @@ ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(4) 4=3+ WEEK"] <- "4"
 ds00_nomissing$SDISJ = as.numeric(ds00_nomissing$SDISJ)
 
 #checks to see if it is numeric:
+#switch SDIS_ to letter of choice
 is.numeric(ds00_nomissing$SDISA)
 
 
