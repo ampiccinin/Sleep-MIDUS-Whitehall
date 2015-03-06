@@ -289,8 +289,8 @@ ds00_nomissing$SDis <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomiss
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
 #  Get the mean SleepDuration, then subtract it from each person's score, then multiply the centered variables together
 
-ds00_nomissing$Sdur1 <- ds00_nomissing$B4S4 - 6.89
-ds00_nomissing$Sdur <- ds00_nomissing$Sdur1 * ds00_nomissing$Sdur1
+ds_PSQ$Sdur1 <- ds_PSQ$B4S4 - 6.888
+ds_PSQ$Sdur <- ds_PSQ$Sdur1 * ds_PSQ$Sdur1
 
 
 #drop outlier EF
@@ -302,7 +302,7 @@ ds_PSQ <- ds00_nomissing[ which(ds00_nomissing$B3TEFZ3 > -4.00), ]
 
 #with psych pkg
 library(psych)
-describe(ds00_nomissing)
+describe(ds_PSQ)
 
 library(psych)
 describe(ds0daily_nomissing)
@@ -314,7 +314,7 @@ describe(ds0daily_nomissing)
 # GRAPHICAL look at data
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~B3TEMZ3+B3TEFZ3+SDIS.sum+Sdur,data=ds00_nomissing, 
+pairs(~B3TEMZ3+B3TEFZ3+SDis+Sdur,data=ds_PSQ, 
       main="Scatterplot Matrix")
 
 # If you want to highlight just one Simple Scatterplot
