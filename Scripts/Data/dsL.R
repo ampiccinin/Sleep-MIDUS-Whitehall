@@ -325,7 +325,7 @@ head(ds)
 
 # If you want to highlight just one Simple Scatterplot
 attach(ds00_nomissing)
-plot(B1PAGE_M2.x, B4S4, main="Scatterplot of Cognition by Sleep Disturbance", 
+plot(B3TEMZ3, B4S4, main="Scatterplot of Cognition by Sleep Disturbance", 
      xlab="Sleep Quality", ylab="Cognitive Variable ", pch=19)
 
 # you can add  fit lines to your scatterplot with:
