@@ -314,7 +314,7 @@ describe(ds0daily_nomissing)
 # GRAPHICAL look at data
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~B3TEMZ3+B3TEFZ3+SDis+Sdur,data=ds_PSQ, 
+pairs(~B3TEMZ3+B3TEFZ3+SDis+Sdur+Sdur1,data=ds_PSQ, 
       main="Scatterplot Matrix")
 
 # what is the id of the person with a potential outlier?
@@ -351,9 +351,6 @@ plot(fit)
 
 
 ##LINEAR REGRESSION MODELS
-
-B4S5 <- c("B4S5")
-Squal <- as.numeric(levels(B4S5))[B4S5]
 
 # Pittsburgh Sleep Quality Inventory:
 # Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
