@@ -329,7 +329,7 @@ plot(B3TEMZ3, SDis, main="Scatterplot of Cognition by Sleep Disturbance",
      xlab="Sleep Quality", ylab="Cognitive Variable ", pch=19)
 
 # you can add  fit lines to your scatterplot with:
-abline(lm(cog~SDist), col="red") # regression line (y~x) 
+abline(lm(B3TEMZ3~SDis), col="red") # regression line (y~x) 
 
 # If you want to make visually stunning graphs for your poster
 # you can try playing around with ggplot2: see  http://www.cookbook-r.com/Graphs/ 
