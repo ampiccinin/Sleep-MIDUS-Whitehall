@@ -289,12 +289,14 @@ ds00_nomissing$SDis <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomiss
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
 #  Get the mean SleepDuration, then subtract it from each person's score, then multiply the centered variables together
 
-ds_PSQ$Sdur1 <- ds_PSQ$B4S4 - 6.888
-ds_PSQ$Sdur <- ds_PSQ$Sdur1 * ds_PSQ$Sdur1
-
 
 #drop outlier EF
 ds_PSQ <- ds00_nomissing[ which(ds00_nomissing$B3TEFZ3 > -4.00), ]
+
+
+ds_PSQ$Sdur1 <- ds_PSQ$B4S4 - 6.888
+ds_PSQ$Sdur <- ds_PSQ$Sdur1 * ds_PSQ$Sdur1
+
 
 ########## DESCRIPTIVE STATISTICS
 
