@@ -62,9 +62,9 @@ library(Hmisc)
 
 
 #load psych pkgmydata <- ds_03
-library(psych)
-mydata <- spss.get("04652-0001-Data.sav", use.value.labels=TRUE)
-ds03 <- mydata
+library(foreign)
+ds03 <- spss.get("C:\\Users\\Samer Rohani\\Documents\\GitHub\\Sleep-MIDUS-Whitehall\\Data\\Raw\\04652-0001-Data.sav", use.value.labels=TRUE)
+
 
 ds01 <- da25281.0001
 ds02 <- da29282.0001
@@ -185,11 +185,11 @@ ds00_nomissing$GENDER = as.numeric(ds00_nomissing$GENDER)
 is.numeric(ds00_nomissing$GENDER)
 
 #Convert Sleep Quality to numeric in ds00_nomissing
-#Fairly Bad and Very Bad is condensed into "Bad" containing both groups
+#Fairly, Good, Fairly Bad, Very Bad is condensed into "Bad" containing both groups
 ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(1) 1=VERY GOOD"] <- "1"
 ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(2) 2=FAIRLY GOOD"] <- "2"
-ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(3) 3=FAIRLY BAD"] <- "3"
-ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(4) 4=VERY BAD"] <- "3"
+ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(3) 3=FAIRLY BAD"] <- "2"
+ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(4) 4=VERY BAD"] <- "2"
 ds00_nomissing$SQUAL = as.numeric(ds00_nomissing$SQUAL)
 #checks to see if it is numeric:
 is.numeric(ds00_nomissing$SQUAL)
@@ -208,6 +208,15 @@ ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
 ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(3) 3=1-2 X WEEK"] <- "3"
 ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(4) 4=3+ WEEK"] <- "4"
 ds00_nomissing$SDISB = as.numeric(ds00_nomissing$SDISB)
+
+#####
+
+ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISC = as.numeric(ds00_nomissing$SDISC)
+
 
 #####
 
@@ -270,9 +279,8 @@ is.numeric(ds00_nomissing$SDISA)
 
 
 #Syntax to SUM Sleep Disturbance scores
-ds00_nomissing$SDIS.sum <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomissing$SDISC + ds00_nomissing$SDISD + ds00_nomissing$SDISE + ds00_nomissing$SDISF + ds00_nomissing$SDISG + ds00_nomissing$SDISH + ds00_nomissing$SDISI + ds00_nomissing$SDISJ
+ds00_nomissing$SDis <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomissing$SDISC + ds00_nomissing$SDISD + ds00_nomissing$SDISE + ds00_nomissing$SDISF + ds00_nomissing$SDISG + ds00_nomissing$SDISH + ds00_nomissing$SDISI + ds00_nomissing$SDISJ
 
-B4S4_2 <- B4S4 * B4S4
 
 # I don't know the names of your actual variables, so I've just made some up below
 # I am hoping you can edit these examples with your real variable names and get them to run
@@ -283,6 +291,9 @@ B4S4_2 <- B4S4 * B4S4
 ds00_nomissing$Sdur1 <- ds00_nomissing$B4S4 - 6.89
 ds00_nomissing$Sdur <- ds00_nomissing$Sdur1 * ds00_nomissing$Sdur1
 
+
+#drop outlier EF
+ds_PSQ <- ds00_nomissing[ which(ds00_nomissing$B3TEFZ3 > -4.00), ]
 
 ########## DESCRIPTIVE STATISTICS
 
