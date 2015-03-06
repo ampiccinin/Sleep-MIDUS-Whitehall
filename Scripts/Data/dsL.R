@@ -294,8 +294,8 @@ ds00_nomissing$SDis <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomiss
 ds_PSQ <- ds00_nomissing[ which(ds00_nomissing$B3TEFZ3 > -4.00), ]
 
 
-ds_PSQ$Sdur1 <- ds_PSQ$B4S4 - 6.888
-ds_PSQ$Sdur <- ds_PSQ$Sdur1 * ds_PSQ$Sdur1
+ds_PSQ$DurationC <- ds_PSQ$B4S4 - 6.888
+ds_PSQ$Duration2 <- ds_PSQ$DurationC * ds_PSQ$DurationC
 
 
 ########## DESCRIPTIVE STATISTICS
@@ -316,11 +316,11 @@ describe(ds0daily_nomissing)
 # GRAPHICAL look at data
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~B3TEMZ3+B3TEFZ3+SDis+Sdur,data=ds_PSQ, 
+pairs(~B3TEMZ3+B3TEFZ3+SDis+B4S4+DurationC+Duration2,data=ds_PSQ, 
       main="Scatterplot Matrix")
 
 # what is the id of the person with a potential outlier?
-ds <- ds_PSQ[order(ds_PSQ$Sdur1,decreasing=T),]
+ds <- ds_PSQ[order(ds_PSQ$B4S4,decreasing=T),]
 head(ds)
 
 # If you want to highlight just one Simple Scatterplot
