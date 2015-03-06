@@ -336,7 +336,7 @@ abline(lm(B3TEMZ3~SDis), col="red") # regression line (y~x)
 # but lets get the basics done first.
 
 # Multiple Linear Regression Example 
-fit <- lm(cog ~ SDis + DurationC + Duration2, data=mydata)
+fit <- lm(B3TEMZ3 ~ SDis + DurationC + Duration2, data=ds)
 summary(fit) # show results
 # Other useful functions 
 coefficients(fit) # model coefficients
