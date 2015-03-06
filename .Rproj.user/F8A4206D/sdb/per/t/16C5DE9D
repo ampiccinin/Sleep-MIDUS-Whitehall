@@ -1,21 +1,21 @@
 {
     "contents" : "",
-    "created" : 1425502005558.000,
+    "created" : 1425613991853.000,
     "dirty" : false,
     "encoding" : "",
     "folds" : "",
     "hash" : "0",
-    "id" : "EDD1B86B",
+    "id" : "16C5DE9D",
     "lastKnownWriteTime" : 31244014472658945,
     "path" : null,
     "project_path" : null,
     "properties" : {
         "caption" : "ds00_nomissing",
-        "contentUrl" : "content?title=ds00_nomissing&file=af9714f5b3b34ddd9f0696d155676523.htm",
+        "contentUrl" : "content?title=ds00_nomissing&file=4927533828294cd4bec76114f3f33a0f.htm",
         "displayedObservations" : 913,
-        "displayedVariables" : 29,
+        "displayedVariables" : 32,
         "totalObservations" : 913,
-        "variables" : 28
+        "variables" : 31
     },
     "source_on_save" : false,
     "type" : "r_dataframe"

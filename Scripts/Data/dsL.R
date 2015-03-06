@@ -12,8 +12,6 @@ library(ctv)
 task.views("Psychometrics")
 install.packages("psych")
 
-
-
 # General Hypotheses
 # There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores. (Regress Cognition on sleep disturbance)
 # There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.  (Regress Cognition on sleep duration & sleepduration squared)
@@ -65,11 +63,8 @@ library(Hmisc)
 
 #load psych pkgmydata <- ds_03
 library(psych)
-
-
-mydata <- spss.get("./Data/Raw/04652-0001-Data.sav", use.value.labels=TRUE)
+mydata <- spss.get("04652-0001-Data.sav", use.value.labels=TRUE)
 ds03 <- mydata
-
 
 ds01 <- da25281.0001
 ds02 <- da29282.0001
@@ -182,15 +177,114 @@ ds0_nomissing <- na.omit(ds0)
 ds0daily_nomissing <- na.omit(ds0daily)
 
 
+#Convert GENDER to numeric in ds00_nomissing
+ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(1) MALE"] <- "1"
+ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(2) FEMALE"] <- "2"
+ds00_nomissing$GENDER = as.numeric(ds00_nomissing$GENDER)
+#checks to see if it is numeric:
+is.numeric(ds00_nomissing$GENDER)
+
+#Convert Sleep Quality to numeric in ds00_nomissing
+#Fairly Bad and Very Bad is condensed into "Bad" containing both groups
+ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(1) 1=VERY GOOD"] <- "1"
+ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(2) 2=FAIRLY GOOD"] <- "2"
+ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(3) 3=FAIRLY BAD"] <- "3"
+ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(4) 4=VERY BAD"] <- "3"
+ds00_nomissing$SQUAL = as.numeric(ds00_nomissing$SQUAL)
+#checks to see if it is numeric:
+is.numeric(ds00_nomissing$SQUAL)
+
+#Convert Sleep Disturbance to numeric in ds00_nomissing
+ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISA = as.numeric(ds00_nomissing$SDISA)
+
+#####
+
+ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISB = as.numeric(ds00_nomissing$SDISB)
+
+#####
+
+ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISD = as.numeric(ds00_nomissing$SDISD)
+
+#####
+
+ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISE = as.numeric(ds00_nomissing$SDISE)
+
+#####
+
+ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISF = as.numeric(ds00_nomissing$SDISF)
+
+#####
+
+ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISG = as.numeric(ds00_nomissing$SDISG)
+
+#####
+
+ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISH = as.numeric(ds00_nomissing$SDISH)
+
+#####
+
+ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISI = as.numeric(ds00_nomissing$SDISI)
+
+#####
+
+ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(3) 3=1-2 X WEEK"] <- "3"
+ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(4) 4=3+ WEEK"] <- "4"
+ds00_nomissing$SDISJ = as.numeric(ds00_nomissing$SDISJ)
+
+#checks to see if it is numeric:
+is.numeric(ds00_nomissing$SDISA)
+
+
+# Convert the column to a factor
+data$scode <- factor(data$scode)
+# subject sex control cond1 cond2 scode
+#       1   M     7.9  12.3  10.7     1
+#       2   F     6.3  10.6  11.1     2
+#       3   F     9.5  13.1  13.8     2
+#       4   M    11.5  13.4  12.9     1
+
 # I don't know the names of your actual variables, so I've just made some up below
 # I am hoping you can edit these examples with your real variable names and get them to run
 
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
 #  Get the mean SleepDuration, then subtract it from each person's score, then multiply the centered variables together
 
-SDur <- c('B4S4')
 
-SDur2 <- SDur * SDur
+B4S4_2 <- B4S4 * B4S4
 
 ########## DESCRIPTIVE STATISTICS
 
@@ -214,9 +308,9 @@ pairs(~cog1+cog2+SDist+Sdur,data=ds0_nomissing,
       main="Scatterplot Matrix")
 
 # If you want to highlight just one Simple Scatterplot
-attach(ds0_nomissing)
-plot(SDist, cog, main="Scatterplot of Cognition by Sleep Disturbance", 
-     xlab="Sleep Disturbance", ylab="Cognitive Variable ", pch=19)
+attach(ds00_nomissing)
+plot(B1PAGE_M2.x, B4S4, main="Scatterplot of Cognition by Sleep Disturbance", 
+     xlab="Sleep Quality", ylab="Cognitive Variable ", pch=19)
 
 # you can add  fit lines to your scatterplot with:
 abline(lm(cog~SDist), col="red") # regression line (y~x) 
@@ -244,12 +338,16 @@ plot(fit)
 
 ##LINEAR REGRESSION MODELS
 
+B4S5 <- c("B4S5")
+Squal <- as.numeric(levels(B4S5))[B4S5]
+
 # Pittsburgh Sleep Quality Inventory:
 # Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
-fit <- lm(B3TEMZ3 + B3TEFZ3 ~ B4S5, data=ds00_nomissing)
+fit <- lm(B3TEFZ3 ~ SQUAL, data=ds00_nomissing)
 summary(fit) # show results
 
 
 # Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
 fit <- lm(B3TEMZ3 + B3TEFZ3 ~ B4S11A + B4S11B + B4S11C + B4S11D + B4S11E + B4S11F + B4S11G + B4S11H + B4S11I + B4S11J, data=ds00_nomissing)
 summary(fit) # show results
+
