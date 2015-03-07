@@ -170,8 +170,10 @@ ds00 <- ds0[!MIDUS_sleepdaily]
 
 # save the data as RDS for quicker loading in the future
 saveRDS(ds00,"./Data/Derived/ds00.rds", compress = "xz")
+saveRDS(ds0,"./Data/Derived/ds0.rds", compress = "xz")
 # load the data from a previously saved RDS
 ds00 <- readRDS(file="./Data/Derived/ds00.rds")
+ds0 <- readRDS(file="./Data/Derived/ds0.rds")
 
 #ds0 with PSQ sleep variables dropped
 MIDUS_sleepPSQ <- names(ds0) %in% c(
