@@ -3,19 +3,22 @@ rm(list=ls(all=TRUE))
 
 
 #install psyc package
-install.packages("ctv")
-install.packages("psych")
+# install.packages("ctv")
+# install.packages("psych")
+# install.packages("foreign")
+# install.packages("Hmisc")
 
+
+library(foreign)
+library(Hmisc)
+library(foreign)
 library(ctv)
 library(psych)
 
+#load psych pkgmydata <- ds_03
+
+
 task.views("Psychometrics")
-
-
-## @knitr LoadData
-load("./Data/Raw/25281-0001-Data.rda")
-load("./Data/Raw/29282-0001-Data.rda")
-
 
 
 
@@ -60,21 +63,14 @@ load("./Data/Raw/29282-0001-Data.rda")
 #  If you want to create an interaction term, you should "center" each variable first by subtracting the mean from each person's score
 #        and then multiply the centered variables together
 
-#install foreign package
-install.packages("foreign")
-library(foreign)
-
-install.packages("Hmisc")
-library(Hmisc)
-
-
-#load psych pkgmydata <- ds_03
-library(foreign)
-ds03 <- spss.get("./Raw/04652-0001-Data.sav", use.value.labels=TRUE)
-
-
+## @knitr LoadData
+load("./Data/Raw/25281-0001-Data.rda")
+load("./Data/Raw/29282-0001-Data.rda")
 ds01 <- da25281.0001
 ds02 <- da29282.0001
+
+ds03 <- spss.get("./Data/Raw/04652-0001-Data.sav", use.value.labels=TRUE)
+
 str(ds01)
 
 ds0 <- merge(ds01,ds02,by="M2ID", all=TRUE)
@@ -172,6 +168,11 @@ MIDUS_sleepdaily <- names(ds0) %in% c(
   'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A')
 ds00 <- ds0[!MIDUS_sleepdaily]
 
+# save the data as RDS for quicker loading in the future
+saveRDS(ds00,"./Data/Derived/ds00.rds", compress = "xz")
+# load the data from a previously saved RDS
+ds00 <- readRDS(file="./Data/Derived/ds00.rds")
+
 #ds0 with PSQ sleep variables dropped
 MIDUS_sleepPSQ <- names(ds0) %in% c(
   'B4S4', 'B4S5', 'B4S7', 'B4S11A', 'B4S11B', 'B4S11C', 'B4S11D',    
@@ -182,6 +183,8 @@ ds0daily <- ds0[!MIDUS_sleepPSQ]
 ds00_nomissing <- na.omit(ds00)
 ds0_nomissing <- na.omit(ds0)
 ds0daily_nomissing <- na.omit(ds0daily)
+
+saveRDS(ds00,"./Data/Derived/ds00.rds", compress = "xz")
 
 
 #Convert GENDER to numeric in ds00_nomissing
