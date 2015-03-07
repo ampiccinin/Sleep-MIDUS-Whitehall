@@ -186,9 +186,6 @@ ds00_nomissing <- na.omit(ds00)
 ds0_nomissing <- na.omit(ds0)
 ds0daily_nomissing <- na.omit(ds0daily)
 
-saveRDS(ds00,"./Data/Derived/ds00.rds", compress = "xz")
-
-
 #Convert GENDER to numeric in ds00_nomissing
 ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(1) MALE"] <- "1"
 ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(2) FEMALE"] <- "2"
