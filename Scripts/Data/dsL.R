@@ -386,7 +386,7 @@ summary(fit_h1_2) # show results
 # Hypothesis 2: There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.
 
 #memory
-fit_h2_1 <- lm(B3TEMZ3 ~ Sdur1 + Sdur, data=ds_PSQ)
+fit_h2_1 <- lm(B3TEMZ3 ~ DurationC + Duration2, data=ds_PSQ)
 summary(fit_h2_1) # show results
 
 #EF
