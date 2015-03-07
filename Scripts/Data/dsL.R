@@ -1,16 +1,23 @@
 # remove all elements for a clean start
 rm(list=ls(all=TRUE))
 
-## @knitr LoadData
-load("./Raw/25281-0001-Data.rda")
-load("./Raw/29282-0001-Data.rda")
-
 
 #install psyc package
 install.packages("ctv")
-library(ctv)
-task.views("Psychometrics")
 install.packages("psych")
+
+library(ctv)
+library(psych)
+
+task.views("Psychometrics")
+
+
+## @knitr LoadData
+load("./Data/Raw/25281-0001-Data.rda")
+load("./Data/Raw/29282-0001-Data.rda")
+
+
+
 
 # General Hypotheses
 # There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores. (Regress Cognition on sleep disturbance)
