@@ -1,21 +1,21 @@
 {
     "contents" : "",
-    "created" : 1425891146759.000,
+    "created" : 1425892915874.000,
     "dirty" : false,
     "encoding" : "",
     "folds" : "",
     "hash" : "0",
-    "id" : "4FEDA223",
+    "id" : "6501F779",
     "lastKnownWriteTime" : 31244014472658945,
     "path" : null,
     "project_path" : null,
     "properties" : {
         "caption" : "dsdailydiary",
-        "contentUrl" : "content?title=dsdailydiary&file=4acfa9ef004b4b59a8b3875fe94b2ea2.htm",
+        "contentUrl" : "content?title=dsdailydiary&file=0d2836e5d28845c48afc4d7171f051e4.htm",
         "displayedObservations" : 238,
         "displayedVariables" : 100,
         "totalObservations" : 238,
-        "variables" : 99
+        "variables" : 108
     },
     "source_on_save" : false,
     "type" : "r_dataframe"

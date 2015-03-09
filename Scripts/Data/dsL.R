@@ -405,20 +405,62 @@ dsdailydiary$WAKE <-  (dsdailydiary$B4AD111 +
                       dsdailydiary$B4AD611 +
                       dsdailydiary$B4AD711)/7
 
-is.numeric(dsdailydiary$B4AD111)
-is.numeric(dsdailydiary$B4AD211)
-is.numeric(dsdailydiary$B4AD311)
-is.numeric(dsdailydiary$B4AD411)
-is.numeric(dsdailydiary$B4AD511)
-is.numeric(dsdailydiary$B4AD611)
-is.numeric(dsdailydiary$B4AD711)
+dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(1) VERY GOOD"] <- "1"
+dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(2) 2"] <- "2"
+dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(3) 3"] <- "3"
+dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(4) 4"] <- "4"
+dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(5) VERY POOR"] <- "5"
+dsdailydiary$DSQUAL1 = as.numeric(dsdailydiary$DSQUAL1)
 
-dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(1) VERY EASY"] <- "1"
-dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(2) 2"] <- "2"
-dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(3) 3"] <- "3"
-dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(4) 4"] <- "4"
-dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$WAKE1 = as.numeric(dsdailydiary$WAKE1)
+dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(1) VERY GOOD"] <- "1"
+dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(2) 2"] <- "2"
+dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(3) 3"] <- "3"
+dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(4) 4"] <- "4"
+dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(5) VERY POOR"] <- "5"
+dsdailydiary$DSQUAL2 = as.numeric(dsdailydiary$DSQUAL2)
+
+dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(1) VERY GOOD"] <- "1"
+dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(2) 2"] <- "2"
+dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(3) 3"] <- "3"
+dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(4) 4"] <- "4"
+dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(5) VERY POOR"] <- "5"
+dsdailydiary$DSQUAL3 = as.numeric(dsdailydiary$DSQUAL3)
+
+dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(1) VERY GOOD"] <- "1"
+dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(2) 2"] <- "2"
+dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(3) 3"] <- "3"
+dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(4) 4"] <- "4"
+dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(5) VERY POOR"] <- "5"
+dsdailydiary$DSQUAL4 = as.numeric(dsdailydiary$DSQUAL4)
+
+dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(1) VERY GOOD"] <- "1"
+dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(2) 2"] <- "2"
+dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(3) 3"] <- "3"
+dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(4) 4"] <- "4"
+dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(5) VERY POOR"] <- "5"
+dsdailydiary$DSQUAL5 = as.numeric(dsdailydiary$DSQUAL5)
+
+dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(1) VERY GOOD"] <- "1"
+dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(2) 2"] <- "2"
+dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(3) 3"] <- "3"
+dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(4) 4"] <- "4"
+dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(5) VERY POOR"] <- "5"
+dsdailydiary$DSQUAL6 = as.numeric(dsdailydiary$DSQUAL6)
+
+dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(1) VERY GOOD"] <- "1"
+dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(2) 2"] <- "2"
+dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(3) 3"] <- "3"
+dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(4) 4"] <- "4"
+dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(5) VERY POOR"] <- "5"
+dsdailydiary$DSQUAL7 = as.numeric(dsdailydiary$DSQUAL7)
+
+dsdailydiary$DSQUAL <-  (dsdailydiary$DSQUAL1 + 
+                         dsdailydiary$DSQUAL2 +
+                         dsdailydiary$DSQUAL3 +
+                         dsdailydiary$DSQUAL4 +
+                         dsdailydiary$DSQUAL5 +
+                         dsdailydiary$DSQUAL6 +
+                         dsdailydiary$DSQUAL7)/7
 
 # I don't know the names of your actual variables, so I've just made some up below
 # I am hoping you can edit these examples with your real variable names and get them to run
