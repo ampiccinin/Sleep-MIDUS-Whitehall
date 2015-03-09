@@ -304,14 +304,41 @@ ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(3) 3=1-2 X WEEK"] <- "3"
 ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(4) 4=3+ WEEK"] <- "4"
 ds00_nomissing$SDISJ = as.numeric(ds00_nomissing$SDISJ)
 
-#checks to see if it is numeric:
-#switch SDIS_ to letter of choice
-is.numeric(ds00_nomissing$SDISA)
-
-
 #Syntax to SUM Sleep Disturbance scores
 ds00_nomissing$SDis <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomissing$SDISC + ds00_nomissing$SDISD + ds00_nomissing$SDISE + ds00_nomissing$SDISF + ds00_nomissing$SDISG + ds00_nomissing$SDISH + ds00_nomissing$SDISI + ds00_nomissing$SDISJ
 
+
+#Daily Sleep Diary Numeric Conversions
+
+dsdailydiary$MED1[dsdailydiary$B4AD17=="(1) YES"] <- "1"
+dsdailydiary$MED1[dsdailydiary$B4AD17=="(2) NO"] <- "2"
+dsdailydiary$MED1 = as.numeric(dsdailydiary$MED1)
+
+dsdailydiary$MED2[dsdailydiary$B4AD27=="(1) YES"] <- "1"
+dsdailydiary$MED2[dsdailydiary$B4AD27=="(2) NO"] <- "2"
+dsdailydiary$MED2 = as.numeric(dsdailydiary$MED2)
+
+dsdailydiary$MED3[dsdailydiary$B4AD37=="(1) YES"] <- "1"
+dsdailydiary$MED3[dsdailydiary$B4AD37=="(2) NO"] <- "2"
+dsdailydiary$MED3 = as.numeric(dsdailydiary$MED3)
+
+dsdailydiary$MED4[dsdailydiary$B4AD47=="(1) YES"] <- "1"
+dsdailydiary$MED4[dsdailydiary$B4AD47=="(2) NO"] <- "2"
+dsdailydiary$MED4 = as.numeric(dsdailydiary$MED4)
+
+dsdailydiary$MED5[dsdailydiary$B4AD57=="(1) YES"] <- "1"
+dsdailydiary$MED5[dsdailydiary$B4AD57=="(2) NO"] <- "2"
+dsdailydiary$MED5 = as.numeric(dsdailydiary$MED5)
+
+dsdailydiary$MED6[dsdailydiary$B4AD67=="(1) YES"] <- "1"
+dsdailydiary$MED6[dsdailydiary$B4AD67=="(2) NO"] <- "2"
+dsdailydiary$MED6 = as.numeric(dsdailydiary$MED6)
+
+dsdailydiary$MED7[dsdailydiary$B4AD77=="(1) YES"] <- "1"
+dsdailydiary$MED7[dsdailydiary$B4AD77=="(2) NO"] <- "2"
+dsdailydiary$MED7 = as.numeric(dsdailydiary$MED7)
+
+dsdailydiary$MED <- (dsdailydiary$MED1 + dsdailydiary$MED2 + dsdailydiary$MED3 + dsdailydiary$MED4 + dsdailydiary$MED5 + dsdailydiary$MED6 + dsdailydiary$MED7)/7
 
 # I don't know the names of your actual variables, so I've just made some up below
 # I am hoping you can edit these examples with your real variable names and get them to run
