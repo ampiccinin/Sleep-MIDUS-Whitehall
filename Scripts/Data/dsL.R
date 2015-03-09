@@ -338,8 +338,6 @@ dsdailydiary$MED7[dsdailydiary$B4AD77=="(1) YES"] <- "1"
 dsdailydiary$MED7[dsdailydiary$B4AD77=="(2) NO"] <- "2"
 dsdailydiary$MED7 = as.numeric(dsdailydiary$MED7)
 
-dsdailydiary$MED <- (dsdailydiary$MED1 + dsdailydiary$MED2 + dsdailydiary$MED3 + dsdailydiary$MED4 + dsdailydiary$MED5 + dsdailydiary$MED6 + dsdailydiary$MED7)/7
-
 dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(1) VERY EASY"] <- "1"
 dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(2) 2"] <- "2"
 dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(3) 3"] <- "3"
@@ -461,6 +459,31 @@ dsdailydiary$DSQUAL <-  (dsdailydiary$DSQUAL1 +
                          dsdailydiary$DSQUAL5 +
                          dsdailydiary$DSQUAL6 +
                          dsdailydiary$DSQUAL7)/7
+
+dsdailydiary$TRSLEEP1[dsdailydiary$B4AD113=="(1) YES"] <- "1"
+dsdailydiary$TRSLEEP1[dsdailydiary$B4AD113=="(2) NO"] <- "2"
+dsdailydiary$TRSLEEP1 = as.numeric(dsdailydiary$TRSLEEP1)
+
+dsdailydiary$TRSLEEP3[dsdailydiary$B4AD313=="(1) YES"] <- "1"
+dsdailydiary$TRSLEEP3[dsdailydiary$B4AD313=="(2) NO"] <- "2"
+dsdailydiary$TRSLEEP3 = as.numeric(dsdailydiary$TRSLEEP3)
+
+dsdailydiary$TRSLEEP4[dsdailydiary$B4AD413=="(1) YES"] <- "1"
+dsdailydiary$TRSLEEP4[dsdailydiary$B4AD413=="(2) NO"] <- "2"
+dsdailydiary$TRSLEEP4 = as.numeric(dsdailydiary$TRSLEEP4)
+
+dsdailydiary$TRSLEEP5[dsdailydiary$B4AD513=="(1) YES"] <- "1"
+dsdailydiary$TRSLEEP5[dsdailydiary$B4AD513=="(2) NO"] <- "2"
+dsdailydiary$TRSLEEP5 = as.numeric(dsdailydiary$TRSLEEP5)
+
+dsdailydiary$TRSLEEP6[dsdailydiary$B4AD613=="(1) YES"] <- "1"
+dsdailydiary$TRSLEEP6[dsdailydiary$B4AD613=="(2) NO"] <- "2"
+dsdailydiary$TRSLEEP6 = as.numeric(dsdailydiary$TRSLEEP6)
+
+dsdailydiary$TRSLEEP7[dsdailydiary$B4AD713=="(1) YES"] <- "1"
+dsdailydiary$TRSLEEP7[dsdailydiary$B4AD713=="(2) NO"] <- "2"
+dsdailydiary$TRSLEEP7 = as.numeric(dsdailydiary$TRSLEEP7)
+
 
 # I don't know the names of your actual variables, so I've just made some up below
 # I am hoping you can edit these examples with your real variable names and get them to run
