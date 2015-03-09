@@ -340,6 +340,86 @@ dsdailydiary$MED7 = as.numeric(dsdailydiary$MED7)
 
 dsdailydiary$MED <- (dsdailydiary$MED1 + dsdailydiary$MED2 + dsdailydiary$MED3 + dsdailydiary$MED4 + dsdailydiary$MED5 + dsdailydiary$MED6 + dsdailydiary$MED7)/7
 
+dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(1) VERY EASY"] <- "1"
+dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(2) 2"] <- "2"
+dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(3) 3"] <- "3"
+dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(4) 4"] <- "4"
+dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$SDIFF1 = as.numeric(dsdailydiary$SDIFF1)
+
+dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(1) VERY EASY"] <- "1"
+dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(2) 2"] <- "2"
+dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(3) 3"] <- "3"
+dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(4) 4"] <- "4"
+dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$SDIFF2 = as.numeric(dsdailydiary$SDIFF2)
+
+dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(1) VERY EASY"] <- "1"
+dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(2) 2"] <- "2"
+dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(3) 3"] <- "3"
+dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(4) 4"] <- "4"
+dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$SDIFF3 = as.numeric(dsdailydiary$SDIFF3)
+
+dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(1) VERY EASY"] <- "1"
+dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(2) 2"] <- "2"
+dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(3) 3"] <- "3"
+dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(4) 4"] <- "4"
+dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$SDIFF4 = as.numeric(dsdailydiary$SDIFF4)
+
+dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(1) VERY EASY"] <- "1"
+dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(2) 2"] <- "2"
+dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(3) 3"] <- "3"
+dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(4) 4"] <- "4"
+dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$SDIFF5 = as.numeric(dsdailydiary$SDIFF5)
+
+dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(1) VERY EASY"] <- "1"
+dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(2) 2"] <- "2"
+dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(3) 3"] <- "3"
+dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(4) 4"] <- "4"
+dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$SDIFF6 = as.numeric(dsdailydiary$SDIFF6)
+
+dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(1) VERY EASY"] <- "1"
+dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(2) 2"] <- "2"
+dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(3) 3"] <- "3"
+dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(4) 4"] <- "4"
+dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$SDIFF7 = as.numeric(dsdailydiary$SDIFF7)
+
+dsdailydiary$SDIFF <- (dsdailydiary$SDIFF1 + 
+                       dsdailydiary$SDIFF2 + 
+                       dsdailydiary$SDIFF3 + 
+                       dsdailydiary$SDIFF4 + 
+                       dsdailydiary$SDIFF5 + 
+                       dsdailydiary$SDIFF6 + 
+                       dsdailydiary$SDIFF7)/7
+
+dsdailydiary$WAKE <-  (dsdailydiary$B4AD111 + 
+                      dsdailydiary$B4AD211 +
+                      dsdailydiary$B4AD311 +
+                      dsdailydiary$B4AD411 +
+                      dsdailydiary$B4AD511 +
+                      dsdailydiary$B4AD611 +
+                      dsdailydiary$B4AD711)/7
+
+is.numeric(dsdailydiary$B4AD111)
+is.numeric(dsdailydiary$B4AD211)
+is.numeric(dsdailydiary$B4AD311)
+is.numeric(dsdailydiary$B4AD411)
+is.numeric(dsdailydiary$B4AD511)
+is.numeric(dsdailydiary$B4AD611)
+is.numeric(dsdailydiary$B4AD711)
+
+dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(1) VERY EASY"] <- "1"
+dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(2) 2"] <- "2"
+dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(3) 3"] <- "3"
+dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(4) 4"] <- "4"
+dsdailydiary$WAKE1[dsdailydiary$B4AD110=="(5) VERY DIFFICULT"] <- "5"
+dsdailydiary$WAKE1 = as.numeric(dsdailydiary$WAKE1)
+
 # I don't know the names of your actual variables, so I've just made some up below
 # I am hoping you can edit these examples with your real variable names and get them to run
 
