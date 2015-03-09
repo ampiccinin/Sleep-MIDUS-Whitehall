@@ -104,25 +104,45 @@ MIDUS_cogvars <- c('M2ID', 'B3TCOMPZ3', 'B3TEMZ3', 'B3TEFZ3')
 MIDUS_all <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 
                'B4S4',      'B4S5',      'B4S7',    
                'B4S11A',   'B4S11B',     'B4S11C',    'B4S11D',    'B4S11E',    'B4S11F',    'B4S11G',      'B4S11H',    'B4S11I',    'B4S11J', 
-               'B4AD17',    'B4AD27',    'B4AD37',    'B4AD47',    'B4AD57',    'B4AD67',    'B4AD77',  
-               'B4AD110',   'B4AD210',   'B4AD310',   'B4AD410',   'B4AD510',   'B4AD610',   'B4AD710',  
+               'B4AD17', 'B4AD27', 'B4AD37', 'B4AD47', 'B4AD57', 'B4AD67', 'B4AD77',
+               
+               'B4AD110', 'B4AD210', 'B4AD310', 'B4AD410', 'B4AD510', 'B4AD610', 'B4AD710', 
+               
+               'B4AD111', 'B4AD211', 'B4AD311', 'B4AD411', 'B4AD511', 'B4AD611', 'B4AD711',
+               
                'B4AD113',   'B4AD213',   'B4AD313',   'B4AD413',   'B4AD513',   'B4AD613',   'B4AD713',  
-               'B4AD117',   'B4AD217',   'B4AD317',   'B4AD417',   'B4AD517',   'B4AD617',   'B4AD717',   
+               
                'B4AD120',  'B4AD220',  'B4AD320',  'B4AD420',  'B4AD520',  'B4AD620',  'B4AD720',  
-               'B4AD118',  'B4AD218',  'B4AD318',  'B4AD418',  'B4AD518',  'B4AD618',  'B4AD718', 
+               
+               
+               'B4AD18', 'B4AD18A', 'B4AD28', 'B4AD28A', 'B4AD38', 'B4AD38A', 'B4AD48', 'B4AD48A', 'B4AD58', 'B4AD58A', 'B4AD68', 'B4AD68A', 'B4AD78', 'B4AD78A',
+               
+               'B4AD19', 'B4AD29', 'B4AD39', 'B4AD49', 'B4AD59', 'B4AD69', 'B4AD79',
+               
                'B4AD115',  'B4AD215',  'B4AD315',  'B4AD415',  'B4AD515',  'B4AD615',  'B4AD715', 
                'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A', 'B3TCOMPZ3', 'B3TEMZ3', 'B3TEFZ3')
 
 #object with MIDUS daily sleep variables
-MIDUS_sleepdaily <- c(
-  'B4AD17',    'B4AD27',    'B4AD37',    'B4AD47',    'B4AD57',    'B4AD67',    'B4AD77',  
-'B4AD110',   'B4AD210',   'B4AD310',   'B4AD410',   'B4AD510',   'B4AD610',   'B4AD710',  
-'B4AD113',   'B4AD213',   'B4AD313',   'B4AD413',   'B4AD513',   'B4AD613',   'B4AD713',  
-'B4AD117',   'B4AD217',   'B4AD317',   'B4AD417',   'B4AD517',   'B4AD617',   'B4AD717',   
-'B4AD120',  'B4AD220',  'B4AD320',  'B4AD420',  'B4AD520',  'B4AD620',  'B4AD720',  
-'B4AD118',  'B4AD218',  'B4AD318',  'B4AD418',  'B4AD518',  'B4AD618',  'B4AD718', 
-'B4AD115',  'B4AD215',  'B4AD315',  'B4AD415',  'B4AD515',  'B4AD615',  'B4AD715', 
-'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A')
+MIDUS_sleepdaily <- c( 
+  'M2ID',
+  'B4AD17', 'B4AD27', 'B4AD37', 'B4AD47', 'B4AD57', 'B4AD67', 'B4AD77',
+  
+  'B4AD110', 'B4AD210', 'B4AD310', 'B4AD410', 'B4AD510', 'B4AD610', 'B4AD710', 
+  
+  'B4AD111', 'B4AD211', 'B4AD311', 'B4AD411', 'B4AD511', 'B4AD611', 'B4AD711',
+  
+  'B4AD113',   'B4AD213',   'B4AD313',   'B4AD413',   'B4AD513',   'B4AD613',   'B4AD713',  
+  
+  'B4AD120',  'B4AD220',  'B4AD320',  'B4AD420',  'B4AD520',  'B4AD620',  'B4AD720',  
+  
+  
+  'B4AD18', 'B4AD18A', 'B4AD28', 'B4AD28A', 'B4AD38', 'B4AD38A', 'B4AD48', 'B4AD48A', 'B4AD58', 'B4AD58A', 'B4AD68', 'B4AD68A', 'B4AD78', 'B4AD78A',
+  
+  'B4AD19', 'B4AD29', 'B4AD39', 'B4AD49', 'B4AD59', 'B4AD69', 'B4AD79',
+  
+  'B4AD115',  'B4AD215',  'B4AD315',  'B4AD415',  'B4AD515',  'B4AD615',  'B4AD715', 
+  'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A')
+
 
 # MIDUS_pvars codes:
 # M2ID = Participant ID number
@@ -157,8 +177,13 @@ dssleep <-ds0[MIDUS_sleepvars]
 ds_ALL <-ds0[MIDUS_all]
 dscontrol <- ds03[MIDUS_controls]
 
+
 #ds0 is now all variables of interest
 ds0 <- merge(ds_ALL,dscontrol,by="M2ID")
+
+#Data set with daily variables
+dsdaily1 <- ds0[MIDUS_sleepdaily]
+dsdaily <- merge(dsdaily1,dscontrol,by="M2ID")
 
 #ds0 with daily sleep variables dropped
 MIDUS_sleepdaily <- names(ds0) %in% c(
@@ -183,6 +208,7 @@ ds00_nomissing <- na.omit(ds00)
 ds0_nomissing <- na.omit(ds0)
 ds0daily_nomissing <- na.omit(ds0daily)
 
+dsdailydiary <- na.omit(dsdaily)
 
 #Convert GENDER to numeric in ds00_nomissing
 ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(1) MALE"] <- "1"
