@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1425694954421.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "31BD2008",
+    "lastKnownWriteTime" : 1,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "ds00nm",
+        "contentUrl" : "content?title=ds00nm&file=a4ecad68c4bc4ad3ab7815f0afd42609.htm",
+        "displayedObservations" : 913,
+        "displayedVariables" : 29,
+        "totalObservations" : 913,
+        "variables" : 28
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
