@@ -10,6 +10,7 @@ data_BIOMARKER <- da29282.0001
 data_COGNITION<- da25281.0001
 
 #Load data with control variables
+library(Hmisc)
 library(foreign)
 data_CONTROLS <- spss.get("./Data/Raw/04652-0001-Data.sav", use.value.labels=TRUE)
 
@@ -90,7 +91,9 @@ d0_MIDUS_sleepdaily<- merge(d_MIDUS,d_MIDUS_sleepdaily,by="M2ID")
 d0_PSQ <- na.omit(d0_MIDUS_PSQ)
 d0_sleepdaily <- na.omit(d0_MIDUS_sleepdaily)
 
-dsdailydiary <- na.omit(dsdaily)
+
+
+
 
 #Convert GENDER to numeric in ds00_nomissing
 ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(1) MALE"] <- "1"
@@ -273,20 +276,20 @@ dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(5) VERY DIFFICULT"] <- "5"
 dsdailydiary$SDIFF7 = as.numeric(dsdailydiary$SDIFF7)
 
 dsdailydiary$SDIFF <- (dsdailydiary$SDIFF1 + 
-                       dsdailydiary$SDIFF2 + 
-                       dsdailydiary$SDIFF3 + 
-                       dsdailydiary$SDIFF4 + 
-                       dsdailydiary$SDIFF5 + 
-                       dsdailydiary$SDIFF6 + 
-                       dsdailydiary$SDIFF7)/7
+                         dsdailydiary$SDIFF2 + 
+                         dsdailydiary$SDIFF3 + 
+                         dsdailydiary$SDIFF4 + 
+                         dsdailydiary$SDIFF5 + 
+                         dsdailydiary$SDIFF6 + 
+                         dsdailydiary$SDIFF7)/7
 
 dsdailydiary$WAKE <-  (dsdailydiary$B4AD111 + 
-                      dsdailydiary$B4AD211 +
-                      dsdailydiary$B4AD311 +
-                      dsdailydiary$B4AD411 +
-                      dsdailydiary$B4AD511 +
-                      dsdailydiary$B4AD611 +
-                      dsdailydiary$B4AD711)/7
+                         dsdailydiary$B4AD211 +
+                         dsdailydiary$B4AD311 +
+                         dsdailydiary$B4AD411 +
+                         dsdailydiary$B4AD511 +
+                         dsdailydiary$B4AD611 +
+                         dsdailydiary$B4AD711)/7
 
 dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(1) VERY GOOD"] <- "1"
 dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(2) 2"] <- "2"
@@ -338,12 +341,12 @@ dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(5) VERY POOR"] <- "5"
 dsdailydiary$DSQUAL7 = as.numeric(dsdailydiary$DSQUAL7)
 
 dsdailydiary$DSQUAL <-  (dsdailydiary$DSQUAL1 + 
-                         dsdailydiary$DSQUAL2 +
-                         dsdailydiary$DSQUAL3 +
-                         dsdailydiary$DSQUAL4 +
-                         dsdailydiary$DSQUAL5 +
-                         dsdailydiary$DSQUAL6 +
-                         dsdailydiary$DSQUAL7)/7
+                           dsdailydiary$DSQUAL2 +
+                           dsdailydiary$DSQUAL3 +
+                           dsdailydiary$DSQUAL4 +
+                           dsdailydiary$DSQUAL5 +
+                           dsdailydiary$DSQUAL6 +
+                           dsdailydiary$DSQUAL7)/7
 
 dsdailydiary$TRSLEEP1[dsdailydiary$B4AD113=="(1) YES"] <- "1"
 dsdailydiary$TRSLEEP1[dsdailydiary$B4AD113=="(2) NO"] <- "2"
