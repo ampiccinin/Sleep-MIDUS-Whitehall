@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1426139790429.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2FE13429",
+    "lastKnownWriteTime" : 31244014472658945,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "PSQ",
+        "contentUrl" : "content?title=PSQ&file=086fb7c8696742a0acb3a5ce817694cb.htm",
+        "displayedObservations" : 974,
+        "displayedVariables" : 39,
+        "totalObservations" : 974,
+        "variables" : 38
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

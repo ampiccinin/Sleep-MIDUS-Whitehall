@@ -395,9 +395,9 @@ PSQ$Duration2 <- PSQ$DurationC * PSQ$DurationC
 ##Run descriptive stats on ds00 (dataset with daily sleep variables dropped)
 
 #with psych pkg
-library(Hmisc)
-describe(PSQ)
-summary(PSQ)
+library(psych)
+describe(d0_sleepdaily)
+summary(d0_sleepdaily)
 
 library(psych)
 describe(ds0daily_nomissing)
