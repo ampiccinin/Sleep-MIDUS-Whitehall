@@ -1,171 +1,81 @@
 # remove all elements for a clean start
 rm(list=ls(all=TRUE))
 
+#####LOADING DATA#####
 
 ## @knitr LoadData
-load("./Data/Raw/25281-0001-Data.rda")
-load("./Data/Raw/29282-0001-Data.rda")
+data_BIOMARKER <- load("./Data/Raw/data_BIOMARKER.rda")
+data_COGNITION <- load("./Data/Raw/data_COGNITIVE.rda")
+data_BIOMARKER <- da29282.0001
+data_COGNITION<- da25281.0001
 
-#load psych pkgmydata <- ds_03
-library(Hmisc)
-ds03 <- spss.get("./Data/Raw/04652-0001-Data.sav", use.value.labels=TRUE)
+#Load data with control variables
+library(foreign)
+data_CONTROLS <- spss.get("./Data/Raw/04652-0001-Data.sav", use.value.labels=TRUE)
 
-
-
-# General Hypotheses
-# There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores. (Regress Cognition on sleep disturbance)
-# There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.  (Regress Cognition on sleep duration & sleepduration squared)
-#       This association will be U-shaped in that lowest scores are associated with short and long sleep (replication of Ferrie et al.)
-# Sleep duration and sleep disturbance together are better predictors of cognitive score compared to each predictor separately.
-#                       (Regress Cognition on sleep disturbance, sleep duration & sleepduration squared)
- 
-# Pittsburgh Sleep Quality Inventory:
-# Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
-# Hypothesis 2: Individuals who regularly have greater amounts of sleep disturbances have poorer cognition relative to individuals who have lower amounts of sleep disturbances.
-#     These could also be regressions, to keep with same analysis as above. 
-#       Wherever you are just looking at the association between two variables, you could use correlation.
-
-# On a daily level??
-# Hypothesis 1: On average, individuals who rate higher difficulty getting to sleep have poorer cognition 
-#                               relative to individuals who rate lower difficulty getting to sleep.
-# Hypothesis 2: On average, individuals who report higher instances of having difficulty of getting back to sleep have poorer cognition 
-#                               relative to individuals who report lower instances of having difficulty getting back to sleep.
-# Hypothesis 3: On average, individuals who rate lower overall quality of sleep on the previous night have poorer cognition 
-#                              relative to individuals who report higher overall quality of sleep on the previous night.
-
-# For these, I think you were going to compute average for each person. Once you do this, you could just use regression again. 
-
-# Try some of the following resources for Regression in R:
-
-#   http://www.google.ca/webhp?nord=1&gws_rd=cr&ei=ZTn1VIOOCYHuoASLkYGoCg#nord=1&q=regression+in+R 
-#   http://www.statmethods.net/stats/regression.html
-#   
-
-# Notes: Want to look for sex differences.
-#   If you code sex as male=0 and female=1, you can include sex as another predictor in your regression
-#              and the parameter estimate will equal the mean difference between men and women.
-#   I tend to label such a variable "female" so I remember which is the reference group
-#      (i.e., the ref group is male, so the estimate tells how much higher (or lower if it is negative) the women are)
-
-# Something we have not talked about is that since older people tend to not sleep as well,
-#                 you should probably also include age as a predictor in your regressions.
-#  You might also want to look at the interaction between age and sleep disturbance (etc) in case poor sleep has a greater effect in older (or younger) adults
-#  If you want to create an interaction term, you should "center" each variable first by subtracting the mean from each person's score
-#        and then multiply the centered variables together
+MIDUS <- merge(data_BIOMARKER,data_COGNITION,by="M2ID", all=TRUE)
+MIDUS <- merge(MIDUS,data_CONTROLS,by="M2ID", all=TRUE)
 
 
+#####VARIABLES#####
 
-
-
-
-ds01 <- da25281.0001
-ds02 <- da29282.0001
-str(ds01)
-
-ds0 <- merge(ds01,ds02,by="M2ID", all=TRUE)
-
-
-# Object with MIDUS II participant variables from ds0.
+#Object with MIDUS II participant variables (ID, age, gender)
 MIDUS_pvars <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x')
 
-# Object with MIDUS II sleep variables from ds0.
-MIDUS_sleepvars <- c( 'M2ID',
-'B4S4',      'B4S5',      'B4S7',    
-'B4S11A',   'B4S11B',     'B4S11C',    'B4S11D',    'B4S11E',    'B4S11F',    'B4S11G',      'B4S11H',    'B4S11I',    'B4S11J',
-  
-'B4AD17', 'B4AD27', 'B4AD37', 'B4AD47', 'B4AD57', 'B4AD67', 'B4AD77',
+#Object with MIDUS II cognitive variables (episodic memory, EF)
+MIDUS_cogvars <- c('M2ID', 'B3TEMZ3', 'B3TEFZ3')
 
-'B4AD110', 'B4AD210', 'B4AD310', 'B4AD410', 'B4AD510', 'B4AD610', 'B4AD710', 
+#Object with MIDUS II variables to control for
+MIDUS_controls <- c('M2ID', 'B1PB1', 'B1SA11T', 'B1SA1', 'B1PA1', 'B1PA2')
 
-'B4AD111', 'B4AD211', 'B4AD311', 'B4AD411', 'B4AD511', 'B4AD611', 'B4AD711',
+##codes:
+#education B1PB1
+#depression - B1SA11T
+#health status - B1SA1
+#physical health - B1PA1
+#psychological health - B1PA2
 
-'B4AD113',   'B4AD213',   'B4AD313',   'B4AD413',   'B4AD513',   'B4AD613',   'B4AD713',  
+#Object with MIDUS II participant, cognitive, and control variables
+d_MIDUS <- c(
+  'M2ID',    'B1PAGE_M2.x', 'B1PGENDER.x',
+  'B3TEMZ3', 'B3TEFZ3',
+  'B1PB1',   'B1SA11T', 'B1SA1', 'B1PA1', 'B1PA2')
 
-'B4AD120',  'B4AD220',  'B4AD320',  'B4AD420',  'B4AD520',  'B4AD620',  'B4AD720',  
-
-
-'B4AD18', 'B4AD18A', 'B4AD28', 'B4AD28A', 'B4AD38', 'B4AD38A', 'B4AD48', 'B4AD48A', 'B4AD58', 'B4AD58A', 'B4AD68', 'B4AD68A', 'B4AD78', 'B4AD78A',
-
-'B4AD19', 'B4AD29', 'B4AD39', 'B4AD49', 'B4AD59', 'B4AD69', 'B4AD79',
-
-'B4AD115',  'B4AD215',  'B4AD315',  'B4AD415',  'B4AD515',  'B4AD615',  'B4AD715', 
-'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A')
-
-# Object with MIDUS II cognitive variables from ds0.
-MIDUS_cogvars <- c('M2ID', 'B3TCOMPZ3', 'B3TEMZ3', 'B3TEFZ3')
-
-
-# Object with all MIDUS II variables of interest.
-MIDUS_all <- c('M2ID', 'B1PAGE_M2.x', 'B1PGENDER.x', 
-               'B4S4',      'B4S5',      'B4S7',    
-               'B4S11A',   'B4S11B',     'B4S11C',    'B4S11D',    'B4S11E',    'B4S11F',    'B4S11G',      'B4S11H',    'B4S11I',    'B4S11J', 
-'B4AD17', 'B4AD27', 'B4AD37', 'B4AD47', 'B4AD57', 'B4AD67', 'B4AD77',
-  
-'B4AD110', 'B4AD210', 'B4AD310', 'B4AD410', 'B4AD510', 'B4AD610', 'B4AD710', 
- 
-'B4AD111', 'B4AD211', 'B4AD311', 'B4AD411', 'B4AD511', 'B4AD611', 'B4AD711',
-
-'B4AD113',   'B4AD213',   'B4AD313',   'B4AD413',   'B4AD513',   'B4AD613',   'B4AD713',  
-  
-'B4AD120',  'B4AD220',  'B4AD320',  'B4AD420',  'B4AD520',  'B4AD620',  'B4AD720',  
-
-
-'B4AD18', 'B4AD18A', 'B4AD28', 'B4AD28A', 'B4AD38', 'B4AD38A', 'B4AD48', 'B4AD48A', 'B4AD58', 'B4AD58A', 'B4AD68', 'B4AD68A', 'B4AD78', 'B4AD78A',
-
-'B4AD19', 'B4AD29', 'B4AD39', 'B4AD49', 'B4AD59', 'B4AD69', 'B4AD79',
-
-'B4AD115',  'B4AD215',  'B4AD315',  'B4AD415',  'B4AD515',  'B4AD615',  'B4AD715', 
-'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A,
-
-'B3TCOMPZ3', 'B3TEMZ3', 'B3TEFZ3')
+#Object with MIDUS II PSQ variables (for MIDUS_PSQ)
+MIDUS_PSQ <- c(
+  'M2ID',
+  'B4S4',   'B4S5',   'B4S7',    
+  'B4S11A', 'B4S11B', 'B4S11C', 'B4S11D', 'B4S11E',
+  'B4S11F', 'B4S11G', 'B4S11H', 'B4S11I', 'B4S11J')
 
 #object with MIDUS daily sleep variables
 MIDUS_sleepdaily <- c( 
   'M2ID',
-  'B4AD17', 'B4AD27', 'B4AD37', 'B4AD47', 'B4AD57', 'B4AD67', 'B4AD77',
+  ## Sleep medications (item 7, MED):
+  'B4AD17',  'B4AD27', 'B4AD37', 'B4AD47', 'B4AD57', 'B4AD67', 'B4AD77',
   
+  ## Sleep difficulty (item 10, SDIFF)
   'B4AD110', 'B4AD210', 'B4AD310', 'B4AD410', 'B4AD510', 'B4AD610', 'B4AD710', 
   
+  ## No. times woke last night (item 11, WAKE)
   'B4AD111', 'B4AD211', 'B4AD311', 'B4AD411', 'B4AD511', 'B4AD611', 'B4AD711',
   
-  'B4AD113',   'B4AD213',   'B4AD313',   'B4AD413',   'B4AD513',   'B4AD613',   'B4AD713',  
+  ## Trouble getting back to sleep if woke (item 13, TRSLEEP)
+  'B4AD113', 'B4AD213', 'B4AD313', 'B4AD413', 'B4AD513', 'B4AD613', 'B4AD713',
   
-  'B4AD120',  'B4AD220',  'B4AD320',  'B4AD420',  'B4AD520',  'B4AD620',  'B4AD720',  
+  ## Overall sleep quality (item 20, DSSQUAL)
+  'B4AD120', 'B4AD220',  'B4AD320',  'B4AD420',  'B4AD520',  'B4AD620',  'B4AD720',  
   
+  ## Sleep start time (item 18)
+  'B4AD18',  'B4AD28',  'B4AD38',  'B4AD48',  'B4AD58',  'B4AD68',  'B4AD78', 
+  'B4AD18A', 'B4AD28A', 'B4AD38A', 'B4AD48A', 'B4AD58A', 'B4AD68A', 'B4AD78A',
   
-  'B4AD18', 'B4AD18A', 'B4AD28', 'B4AD28A', 'B4AD38', 'B4AD38A', 'B4AD48', 'B4AD48A', 'B4AD58', 'B4AD58A', 'B4AD68', 'B4AD68A', 'B4AD78', 'B4AD78A',
-  
+  ## Minutes to sleep (item 19)
   'B4AD19', 'B4AD29', 'B4AD39', 'B4AD49', 'B4AD59', 'B4AD69', 'B4AD79',
   
+  ## Sleep end time (item 15)
   'B4AD115',  'B4AD215',  'B4AD315',  'B4AD415',  'B4AD515',  'B4AD615',  'B4AD715', 
   'B4AD115A', 'B4AD215A', 'B4AD315A', 'B4AD415A', 'B4AD515A', 'B4AD615A', 'B4AD715A')
-
-
-# MIDUS_pvars codes:
-# M2ID = Participant ID number
-# B1PAGE_M2 = Age deterimined by subtracting DOB_Final from b1ipdate
-# B1PGENDER = Gender
-# B4ZAGE = Respondent age at P4 data collection (Biomarker project)
-
-# MIDUS_cogvars codes:
-# B3TCOMPZ3 = Z-score Brief Test of Adult Cognition by Telephone for complete sample (MIDUS + Milkwaukee)
-# B3TEMZ3 = Z-score Episodic memory computer for complete sample (MIDUS + Milwaukee)
-# B3TEFZ3 = Z-score executive functioning for complete sample (MIDUS + Milwaulkee)
-
-
-#object with MIDUS II variables to control for
-MIDUS_controls <- c('M2ID', 'B1PF8A', 'B1PB1', 'B1SBMI', 'B1SA11T', 'B1SA1', 'B1PA1', 'B1PA1', 'B1PA6A', 'B1SA11S')
-
-##codes:
-#race B1PF8A
-#education B1PB1
-#BMI - B1SBMI
-#depression - B1SA11T
-#health status - B1SA1
-#physical health - B1PA1
-#psychological health - B1PA1
-#stroke - B1PA6A
-#hypertension - B1SA11S
 
 #Variables pulled out of ds0
 dspvars <- ds0[MIDUS_pvars]
