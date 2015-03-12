@@ -405,6 +405,17 @@ describe(ds0daily_nomissing)
 
 # For Correlations, see: http://www.statmethods.net/stats/correlations.html
 
+#### Multivariate outliers #### 
+
+# create an indicator of multivariate outliers
+means <- colMeans(ds[,2:ncol(ds)]) # create a vector of mean using colMeans function
+means
+covar <- cov(ds[,2:ncol(ds)]) # create a matrix of correlation using cor function
+covar
+
+ds$mahal <- mahalanobis(ds[,2:ncol(ds)], means, covar) # create a column storing mahalanobis distance using mahalanobis() function
+ds <- ds[order(ds$mahal,decreasing=T),] # order by descreasing "mahal"
+ds 
 
 # GRAPHICAL look at data
 
