@@ -417,6 +417,8 @@ ds$mahal <- mahalanobis(ds[,2:ncol(ds)], means, covar) # create a column storing
 ds <- ds[order(ds$mahal,decreasing=T),] # order by descreasing "mahal"
 ds 
 
+# use df=nvariables and alpha=.001 from chi-square table to identify cut-off point for "multivariate outlier" status.
+
 # GRAPHICAL look at data
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
