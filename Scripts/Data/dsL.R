@@ -93,299 +93,301 @@ d0_sleepdaily <- na.omit(d0_MIDUS_sleepdaily)
 
 
 
+#####CONVERTING FACTOR TO NUMERIC IN d0_PSQ#####
 
-
-#Convert GENDER to numeric in ds00_nomissing
-ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(1) MALE"] <- "1"
-ds00_nomissing$GENDER[ds00_nomissing$B1PGENDER.x=="(2) FEMALE"] <- "2"
-ds00_nomissing$GENDER = as.numeric(ds00_nomissing$GENDER)
+#Convert GENDER to numeric in d0_PSQ
+d0_PSQ$GENDER[d0_PSQ$B1PGENDER.x=="(1) MALE"] <- "1"
+d0_PSQ$GENDER[d0_PSQ$B1PGENDER.x=="(2) FEMALE"] <- "2"
+d0_PSQ$GENDER = as.numeric(d0_PSQ$GENDER)
 #checks to see if it is numeric:
-is.numeric(ds00_nomissing$GENDER)
+is.numeric(d0_PSQ$GENDER)
 
-#Convert Sleep Quality to numeric in ds00_nomissing
+#Convert Sleep Quality to numeric in d0_PSQ
 #Fairly, Good, Fairly Bad, Very Bad is condensed into "Bad" containing both groups
-ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(1) 1=VERY GOOD"] <- "1"
-ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(2) 2=FAIRLY GOOD"] <- "2"
-ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(3) 3=FAIRLY BAD"] <- "2"
-ds00_nomissing$SQUAL[ds00_nomissing$B4S5=="(4) 4=VERY BAD"] <- "2"
-ds00_nomissing$SQUAL = as.numeric(ds00_nomissing$SQUAL)
+d0_PSQ$SQUAL[d0_PSQ$B4S5=="(1) 1=VERY GOOD"] <- "1"
+d0_PSQ$SQUAL[d0_PSQ$B4S5=="(2) 2=FAIRLY GOOD"] <- "2"
+d0_PSQ$SQUAL[d0_PSQ$B4S5=="(3) 3=FAIRLY BAD"] <- "2"
+d0_PSQ$SQUAL[d0_PSQ$B4S5=="(4) 4=VERY BAD"] <- "2"
+d0_PSQ$SQUAL = as.numeric(d0_PSQ$SQUAL)
 #checks to see if it is numeric:
-is.numeric(ds00_nomissing$SQUAL)
+is.numeric(d0_PSQ$SQUAL)
 
-#Convert Sleep Disturbance to numeric in ds00_nomissing
-ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISA[ds00_nomissing$B4S11A=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISA = as.numeric(ds00_nomissing$SDISA)
-
-#####
-
-ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISB[ds00_nomissing$B4S11B=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISB = as.numeric(ds00_nomissing$SDISB)
+#Convert Sleep Disturbance to numeric in d0_PSQ
+d0_PSQ$SDISA[d0_PSQ$B4S11A=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISA[d0_PSQ$B4S11A=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISA[d0_PSQ$B4S11A=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISA[d0_PSQ$B4S11A=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISA = as.numeric(d0_PSQ$SDISA)
 
 #####
 
-ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISC[ds00_nomissing$B4S11C=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISC = as.numeric(ds00_nomissing$SDISC)
+d0_PSQ$SDISB[d0_PSQ$B4S11B=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISB[d0_PSQ$B4S11B=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISB[d0_PSQ$B4S11B=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISB[d0_PSQ$B4S11B=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISB = as.numeric(d0_PSQ$SDISB)
+
+#####
+
+d0_PSQ$SDISC[d0_PSQ$B4S11C=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISC[d0_PSQ$B4S11C=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISC[d0_PSQ$B4S11C=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISC[d0_PSQ$B4S11C=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISC = as.numeric(d0_PSQ$SDISC)
 
 
 #####
 
-ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISD[ds00_nomissing$B4S11D=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISD = as.numeric(ds00_nomissing$SDISD)
+d0_PSQ$SDISD[d0_PSQ$B4S11D=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISD[d0_PSQ$B4S11D=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISD[d0_PSQ$B4S11D=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISD[d0_PSQ$B4S11D=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISD = as.numeric(d0_PSQ$SDISD)
 
 #####
 
-ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISE[ds00_nomissing$B4S11E=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISE = as.numeric(ds00_nomissing$SDISE)
+d0_PSQ$SDISE[d0_PSQ$B4S11E=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISE[d0_PSQ$B4S11E=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISE[d0_PSQ$B4S11E=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISE[d0_PSQ$B4S11E=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISE = as.numeric(d0_PSQ$SDISE)
 
 #####
 
-ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISF[ds00_nomissing$B4S11F=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISF = as.numeric(ds00_nomissing$SDISF)
+d0_PSQ$SDISF[d0_PSQ$B4S11F=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISF[d0_PSQ$B4S11F=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISF[d0_PSQ$B4S11F=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISF[d0_PSQ$B4S11F=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISF = as.numeric(d0_PSQ$SDISF)
 
 #####
 
-ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISG[ds00_nomissing$B4S11G=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISG = as.numeric(ds00_nomissing$SDISG)
+d0_PSQ$SDISG[d0_PSQ$B4S11G=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISG[d0_PSQ$B4S11G=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISG[d0_PSQ$B4S11G=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISG[d0_PSQ$B4S11G=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISG = as.numeric(d0_PSQ$SDISG)
 
 #####
 
-ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISH[ds00_nomissing$B4S11H=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISH = as.numeric(ds00_nomissing$SDISH)
+d0_PSQ$SDISH[d0_PSQ$B4S11H=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISH[d0_PSQ$B4S11H=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISH[d0_PSQ$B4S11H=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISH[d0_PSQ$B4S11H=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISH = as.numeric(d0_PSQ$SDISH)
 
 #####
 
-ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISI[ds00_nomissing$B4S11I=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISI = as.numeric(ds00_nomissing$SDISI)
+d0_PSQ$SDISI[d0_PSQ$B4S11I=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISI[d0_PSQ$B4S11I=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISI[d0_PSQ$B4S11I=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISI[d0_PSQ$B4S11I=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISI = as.numeric(d0_PSQ$SDISI)
 
 #####
 
-ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(1) 1=NOT DURING PAST MONTH"] <- "1"
-ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
-ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(3) 3=1-2 X WEEK"] <- "3"
-ds00_nomissing$SDISJ[ds00_nomissing$B4S11J=="(4) 4=3+ WEEK"] <- "4"
-ds00_nomissing$SDISJ = as.numeric(ds00_nomissing$SDISJ)
+d0_PSQ$SDISJ[d0_PSQ$B4S11J=="(1) 1=NOT DURING PAST MONTH"] <- "1"
+d0_PSQ$SDISJ[d0_PSQ$B4S11J=="(2) 2=LESS THAN 1 X WEEK"] <- "2"
+d0_PSQ$SDISJ[d0_PSQ$B4S11J=="(3) 3=1-2 X WEEK"] <- "3"
+d0_PSQ$SDISJ[d0_PSQ$B4S11J=="(4) 4=3+ WEEK"] <- "4"
+d0_PSQ$SDISJ = as.numeric(d0_PSQ$SDISJ)
 
 #Syntax to SUM Sleep Disturbance scores
-ds00_nomissing$SDis <- ds00_nomissing$SDISA + ds00_nomissing$SDISB + ds00_nomissing$SDISC + ds00_nomissing$SDISD + ds00_nomissing$SDISE + ds00_nomissing$SDISF + ds00_nomissing$SDISG + ds00_nomissing$SDISH + ds00_nomissing$SDISI + ds00_nomissing$SDISJ
+d0_PSQ$SDis <- d0_PSQ$SDISA + d0_PSQ$SDISB + d0_PSQ$SDISC + d0_PSQ$SDISD + d0_PSQ$SDISE + d0_PSQ$SDISF + d0_PSQ$SDISG + d0_PSQ$SDISH + d0_PSQ$SDISI + d0_PSQ$SDISJ
 
 
-#Daily Sleep Diary Numeric Conversions
 
-dsdailydiary$MED1[dsdailydiary$B4AD17=="(1) YES"] <- "1"
-dsdailydiary$MED1[dsdailydiary$B4AD17=="(2) NO"] <- "2"
-dsdailydiary$MED1 = as.numeric(dsdailydiary$MED1)
+#####CONVERTING FACTOR TO NUMERIC IN d0_sleepdaily#####
 
-dsdailydiary$MED2[dsdailydiary$B4AD27=="(1) YES"] <- "1"
-dsdailydiary$MED2[dsdailydiary$B4AD27=="(2) NO"] <- "2"
-dsdailydiary$MED2 = as.numeric(dsdailydiary$MED2)
+d0_sleepdaily$MED1[d0_sleepdaily$B4AD17=="(1) YES"] <- "1"
+d0_sleepdaily$MED1[d0_sleepdaily$B4AD17=="(2) NO"] <- "2"
+d0_sleepdaily$MED1 = as.numeric(d0_sleepdaily$MED1)
 
-dsdailydiary$MED3[dsdailydiary$B4AD37=="(1) YES"] <- "1"
-dsdailydiary$MED3[dsdailydiary$B4AD37=="(2) NO"] <- "2"
-dsdailydiary$MED3 = as.numeric(dsdailydiary$MED3)
+d0_sleepdaily$MED2[d0_sleepdaily$B4AD27=="(1) YES"] <- "1"
+d0_sleepdaily$MED2[d0_sleepdaily$B4AD27=="(2) NO"] <- "2"
+d0_sleepdaily$MED2 = as.numeric(d0_sleepdaily$MED2)
 
-dsdailydiary$MED4[dsdailydiary$B4AD47=="(1) YES"] <- "1"
-dsdailydiary$MED4[dsdailydiary$B4AD47=="(2) NO"] <- "2"
-dsdailydiary$MED4 = as.numeric(dsdailydiary$MED4)
+d0_sleepdaily$MED3[d0_sleepdaily$B4AD37=="(1) YES"] <- "1"
+d0_sleepdaily$MED3[d0_sleepdaily$B4AD37=="(2) NO"] <- "2"
+d0_sleepdaily$MED3 = as.numeric(d0_sleepdaily$MED3)
 
-dsdailydiary$MED5[dsdailydiary$B4AD57=="(1) YES"] <- "1"
-dsdailydiary$MED5[dsdailydiary$B4AD57=="(2) NO"] <- "2"
-dsdailydiary$MED5 = as.numeric(dsdailydiary$MED5)
+d0_sleepdaily$MED4[d0_sleepdaily$B4AD47=="(1) YES"] <- "1"
+d0_sleepdaily$MED4[d0_sleepdaily$B4AD47=="(2) NO"] <- "2"
+d0_sleepdaily$MED4 = as.numeric(d0_sleepdaily$MED4)
 
-dsdailydiary$MED6[dsdailydiary$B4AD67=="(1) YES"] <- "1"
-dsdailydiary$MED6[dsdailydiary$B4AD67=="(2) NO"] <- "2"
-dsdailydiary$MED6 = as.numeric(dsdailydiary$MED6)
+d0_sleepdaily$MED5[d0_sleepdaily$B4AD57=="(1) YES"] <- "1"
+d0_sleepdaily$MED5[d0_sleepdaily$B4AD57=="(2) NO"] <- "2"
+d0_sleepdaily$MED5 = as.numeric(d0_sleepdaily$MED5)
 
-dsdailydiary$MED7[dsdailydiary$B4AD77=="(1) YES"] <- "1"
-dsdailydiary$MED7[dsdailydiary$B4AD77=="(2) NO"] <- "2"
-dsdailydiary$MED7 = as.numeric(dsdailydiary$MED7)
+d0_sleepdaily$MED6[d0_sleepdaily$B4AD67=="(1) YES"] <- "1"
+d0_sleepdaily$MED6[d0_sleepdaily$B4AD67=="(2) NO"] <- "2"
+d0_sleepdaily$MED6 = as.numeric(d0_sleepdaily$MED6)
 
-dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(1) VERY EASY"] <- "1"
-dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(2) 2"] <- "2"
-dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(3) 3"] <- "3"
-dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(4) 4"] <- "4"
-dsdailydiary$SDIFF1[dsdailydiary$B4AD110=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$SDIFF1 = as.numeric(dsdailydiary$SDIFF1)
+d0_sleepdaily$MED7[d0_sleepdaily$B4AD77=="(1) YES"] <- "1"
+d0_sleepdaily$MED7[d0_sleepdaily$B4AD77=="(2) NO"] <- "2"
+d0_sleepdaily$MED7 = as.numeric(d0_sleepdaily$MED7)
 
-dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(1) VERY EASY"] <- "1"
-dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(2) 2"] <- "2"
-dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(3) 3"] <- "3"
-dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(4) 4"] <- "4"
-dsdailydiary$SDIFF2[dsdailydiary$B4AD210=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$SDIFF2 = as.numeric(dsdailydiary$SDIFF2)
+d0_sleepdaily$SDIFF1[d0_sleepdaily$B4AD110=="(1) VERY EASY"] <- "1"
+d0_sleepdaily$SDIFF1[d0_sleepdaily$B4AD110=="(2) 2"] <- "2"
+d0_sleepdaily$SDIFF1[d0_sleepdaily$B4AD110=="(3) 3"] <- "3"
+d0_sleepdaily$SDIFF1[d0_sleepdaily$B4AD110=="(4) 4"] <- "4"
+d0_sleepdaily$SDIFF1[d0_sleepdaily$B4AD110=="(5) VERY DIFFICULT"] <- "5"
+d0_sleepdaily$SDIFF1 = as.numeric(d0_sleepdaily$SDIFF1)
 
-dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(1) VERY EASY"] <- "1"
-dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(2) 2"] <- "2"
-dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(3) 3"] <- "3"
-dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(4) 4"] <- "4"
-dsdailydiary$SDIFF3[dsdailydiary$B4AD310=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$SDIFF3 = as.numeric(dsdailydiary$SDIFF3)
+d0_sleepdaily$SDIFF2[d0_sleepdaily$B4AD210=="(1) VERY EASY"] <- "1"
+d0_sleepdaily$SDIFF2[d0_sleepdaily$B4AD210=="(2) 2"] <- "2"
+d0_sleepdaily$SDIFF2[d0_sleepdaily$B4AD210=="(3) 3"] <- "3"
+d0_sleepdaily$SDIFF2[d0_sleepdaily$B4AD210=="(4) 4"] <- "4"
+d0_sleepdaily$SDIFF2[d0_sleepdaily$B4AD210=="(5) VERY DIFFICULT"] <- "5"
+d0_sleepdaily$SDIFF2 = as.numeric(d0_sleepdaily$SDIFF2)
 
-dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(1) VERY EASY"] <- "1"
-dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(2) 2"] <- "2"
-dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(3) 3"] <- "3"
-dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(4) 4"] <- "4"
-dsdailydiary$SDIFF4[dsdailydiary$B4AD410=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$SDIFF4 = as.numeric(dsdailydiary$SDIFF4)
+d0_sleepdaily$SDIFF3[d0_sleepdaily$B4AD310=="(1) VERY EASY"] <- "1"
+d0_sleepdaily$SDIFF3[d0_sleepdaily$B4AD310=="(2) 2"] <- "2"
+d0_sleepdaily$SDIFF3[d0_sleepdaily$B4AD310=="(3) 3"] <- "3"
+d0_sleepdaily$SDIFF3[d0_sleepdaily$B4AD310=="(4) 4"] <- "4"
+d0_sleepdaily$SDIFF3[d0_sleepdaily$B4AD310=="(5) VERY DIFFICULT"] <- "5"
+d0_sleepdaily$SDIFF3 = as.numeric(d0_sleepdaily$SDIFF3)
 
-dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(1) VERY EASY"] <- "1"
-dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(2) 2"] <- "2"
-dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(3) 3"] <- "3"
-dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(4) 4"] <- "4"
-dsdailydiary$SDIFF5[dsdailydiary$B4AD510=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$SDIFF5 = as.numeric(dsdailydiary$SDIFF5)
+d0_sleepdaily$SDIFF4[d0_sleepdaily$B4AD410=="(1) VERY EASY"] <- "1"
+d0_sleepdaily$SDIFF4[d0_sleepdaily$B4AD410=="(2) 2"] <- "2"
+d0_sleepdaily$SDIFF4[d0_sleepdaily$B4AD410=="(3) 3"] <- "3"
+d0_sleepdaily$SDIFF4[d0_sleepdaily$B4AD410=="(4) 4"] <- "4"
+d0_sleepdaily$SDIFF4[d0_sleepdaily$B4AD410=="(5) VERY DIFFICULT"] <- "5"
+d0_sleepdaily$SDIFF4 = as.numeric(d0_sleepdaily$SDIFF4)
 
-dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(1) VERY EASY"] <- "1"
-dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(2) 2"] <- "2"
-dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(3) 3"] <- "3"
-dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(4) 4"] <- "4"
-dsdailydiary$SDIFF6[dsdailydiary$B4AD610=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$SDIFF6 = as.numeric(dsdailydiary$SDIFF6)
+d0_sleepdaily$SDIFF5[d0_sleepdaily$B4AD510=="(1) VERY EASY"] <- "1"
+d0_sleepdaily$SDIFF5[d0_sleepdaily$B4AD510=="(2) 2"] <- "2"
+d0_sleepdaily$SDIFF5[d0_sleepdaily$B4AD510=="(3) 3"] <- "3"
+d0_sleepdaily$SDIFF5[d0_sleepdaily$B4AD510=="(4) 4"] <- "4"
+d0_sleepdaily$SDIFF5[d0_sleepdaily$B4AD510=="(5) VERY DIFFICULT"] <- "5"
+d0_sleepdaily$SDIFF5 = as.numeric(d0_sleepdaily$SDIFF5)
 
-dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(1) VERY EASY"] <- "1"
-dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(2) 2"] <- "2"
-dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(3) 3"] <- "3"
-dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(4) 4"] <- "4"
-dsdailydiary$SDIFF7[dsdailydiary$B4AD710=="(5) VERY DIFFICULT"] <- "5"
-dsdailydiary$SDIFF7 = as.numeric(dsdailydiary$SDIFF7)
+d0_sleepdaily$SDIFF6[d0_sleepdaily$B4AD610=="(1) VERY EASY"] <- "1"
+d0_sleepdaily$SDIFF6[d0_sleepdaily$B4AD610=="(2) 2"] <- "2"
+d0_sleepdaily$SDIFF6[d0_sleepdaily$B4AD610=="(3) 3"] <- "3"
+d0_sleepdaily$SDIFF6[d0_sleepdaily$B4AD610=="(4) 4"] <- "4"
+d0_sleepdaily$SDIFF6[d0_sleepdaily$B4AD610=="(5) VERY DIFFICULT"] <- "5"
+d0_sleepdaily$SDIFF6 = as.numeric(d0_sleepdaily$SDIFF6)
 
-dsdailydiary$SDIFF <- (dsdailydiary$SDIFF1 + 
-                         dsdailydiary$SDIFF2 + 
-                         dsdailydiary$SDIFF3 + 
-                         dsdailydiary$SDIFF4 + 
-                         dsdailydiary$SDIFF5 + 
-                         dsdailydiary$SDIFF6 + 
-                         dsdailydiary$SDIFF7)/7
+d0_sleepdaily$SDIFF7[d0_sleepdaily$B4AD710=="(1) VERY EASY"] <- "1"
+d0_sleepdaily$SDIFF7[d0_sleepdaily$B4AD710=="(2) 2"] <- "2"
+d0_sleepdaily$SDIFF7[d0_sleepdaily$B4AD710=="(3) 3"] <- "3"
+d0_sleepdaily$SDIFF7[d0_sleepdaily$B4AD710=="(4) 4"] <- "4"
+d0_sleepdaily$SDIFF7[d0_sleepdaily$B4AD710=="(5) VERY DIFFICULT"] <- "5"
+d0_sleepdaily$SDIFF7 = as.numeric(d0_sleepdaily$SDIFF7)
 
-dsdailydiary$WAKE <-  (dsdailydiary$B4AD111 + 
-                         dsdailydiary$B4AD211 +
-                         dsdailydiary$B4AD311 +
-                         dsdailydiary$B4AD411 +
-                         dsdailydiary$B4AD511 +
-                         dsdailydiary$B4AD611 +
-                         dsdailydiary$B4AD711)/7
+d0_sleepdaily$SDIFF <- (d0_sleepdaily$SDIFF1 + 
+                         d0_sleepdaily$SDIFF2 + 
+                         d0_sleepdaily$SDIFF3 + 
+                         d0_sleepdaily$SDIFF4 + 
+                         d0_sleepdaily$SDIFF5 + 
+                         d0_sleepdaily$SDIFF6 + 
+                         d0_sleepdaily$SDIFF7)/7
 
-dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(1) VERY GOOD"] <- "1"
-dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(2) 2"] <- "2"
-dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(3) 3"] <- "3"
-dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(4) 4"] <- "4"
-dsdailydiary$DSQUAL1[dsdailydiary$B4AD120=="(5) VERY POOR"] <- "5"
-dsdailydiary$DSQUAL1 = as.numeric(dsdailydiary$DSQUAL1)
+d0_sleepdaily$WAKE <-  (d0_sleepdaily$B4AD111 + 
+                         d0_sleepdaily$B4AD211 +
+                         d0_sleepdaily$B4AD311 +
+                         d0_sleepdaily$B4AD411 +
+                         d0_sleepdaily$B4AD511 +
+                         d0_sleepdaily$B4AD611 +
+                         d0_sleepdaily$B4AD711)/7
 
-dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(1) VERY GOOD"] <- "1"
-dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(2) 2"] <- "2"
-dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(3) 3"] <- "3"
-dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(4) 4"] <- "4"
-dsdailydiary$DSQUAL2[dsdailydiary$B4AD220=="(5) VERY POOR"] <- "5"
-dsdailydiary$DSQUAL2 = as.numeric(dsdailydiary$DSQUAL2)
+d0_sleepdaily$DSQUAL1[d0_sleepdaily$B4AD120=="(1) VERY GOOD"] <- "1"
+d0_sleepdaily$DSQUAL1[d0_sleepdaily$B4AD120=="(2) 2"] <- "2"
+d0_sleepdaily$DSQUAL1[d0_sleepdaily$B4AD120=="(3) 3"] <- "3"
+d0_sleepdaily$DSQUAL1[d0_sleepdaily$B4AD120=="(4) 4"] <- "4"
+d0_sleepdaily$DSQUAL1[d0_sleepdaily$B4AD120=="(5) VERY POOR"] <- "5"
+d0_sleepdaily$DSQUAL1 = as.numeric(d0_sleepdaily$DSQUAL1)
 
-dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(1) VERY GOOD"] <- "1"
-dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(2) 2"] <- "2"
-dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(3) 3"] <- "3"
-dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(4) 4"] <- "4"
-dsdailydiary$DSQUAL3[dsdailydiary$B4AD320=="(5) VERY POOR"] <- "5"
-dsdailydiary$DSQUAL3 = as.numeric(dsdailydiary$DSQUAL3)
+d0_sleepdaily$DSQUAL2[d0_sleepdaily$B4AD220=="(1) VERY GOOD"] <- "1"
+d0_sleepdaily$DSQUAL2[d0_sleepdaily$B4AD220=="(2) 2"] <- "2"
+d0_sleepdaily$DSQUAL2[d0_sleepdaily$B4AD220=="(3) 3"] <- "3"
+d0_sleepdaily$DSQUAL2[d0_sleepdaily$B4AD220=="(4) 4"] <- "4"
+d0_sleepdaily$DSQUAL2[d0_sleepdaily$B4AD220=="(5) VERY POOR"] <- "5"
+d0_sleepdaily$DSQUAL2 = as.numeric(d0_sleepdaily$DSQUAL2)
 
-dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(1) VERY GOOD"] <- "1"
-dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(2) 2"] <- "2"
-dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(3) 3"] <- "3"
-dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(4) 4"] <- "4"
-dsdailydiary$DSQUAL4[dsdailydiary$B4AD420=="(5) VERY POOR"] <- "5"
-dsdailydiary$DSQUAL4 = as.numeric(dsdailydiary$DSQUAL4)
+d0_sleepdaily$DSQUAL3[d0_sleepdaily$B4AD320=="(1) VERY GOOD"] <- "1"
+d0_sleepdaily$DSQUAL3[d0_sleepdaily$B4AD320=="(2) 2"] <- "2"
+d0_sleepdaily$DSQUAL3[d0_sleepdaily$B4AD320=="(3) 3"] <- "3"
+d0_sleepdaily$DSQUAL3[d0_sleepdaily$B4AD320=="(4) 4"] <- "4"
+d0_sleepdaily$DSQUAL3[d0_sleepdaily$B4AD320=="(5) VERY POOR"] <- "5"
+d0_sleepdaily$DSQUAL3 = as.numeric(d0_sleepdaily$DSQUAL3)
 
-dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(1) VERY GOOD"] <- "1"
-dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(2) 2"] <- "2"
-dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(3) 3"] <- "3"
-dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(4) 4"] <- "4"
-dsdailydiary$DSQUAL5[dsdailydiary$B4AD520=="(5) VERY POOR"] <- "5"
-dsdailydiary$DSQUAL5 = as.numeric(dsdailydiary$DSQUAL5)
+d0_sleepdaily$DSQUAL4[d0_sleepdaily$B4AD420=="(1) VERY GOOD"] <- "1"
+d0_sleepdaily$DSQUAL4[d0_sleepdaily$B4AD420=="(2) 2"] <- "2"
+d0_sleepdaily$DSQUAL4[d0_sleepdaily$B4AD420=="(3) 3"] <- "3"
+d0_sleepdaily$DSQUAL4[d0_sleepdaily$B4AD420=="(4) 4"] <- "4"
+d0_sleepdaily$DSQUAL4[d0_sleepdaily$B4AD420=="(5) VERY POOR"] <- "5"
+d0_sleepdaily$DSQUAL4 = as.numeric(d0_sleepdaily$DSQUAL4)
 
-dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(1) VERY GOOD"] <- "1"
-dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(2) 2"] <- "2"
-dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(3) 3"] <- "3"
-dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(4) 4"] <- "4"
-dsdailydiary$DSQUAL6[dsdailydiary$B4AD620=="(5) VERY POOR"] <- "5"
-dsdailydiary$DSQUAL6 = as.numeric(dsdailydiary$DSQUAL6)
+d0_sleepdaily$DSQUAL5[d0_sleepdaily$B4AD520=="(1) VERY GOOD"] <- "1"
+d0_sleepdaily$DSQUAL5[d0_sleepdaily$B4AD520=="(2) 2"] <- "2"
+d0_sleepdaily$DSQUAL5[d0_sleepdaily$B4AD520=="(3) 3"] <- "3"
+d0_sleepdaily$DSQUAL5[d0_sleepdaily$B4AD520=="(4) 4"] <- "4"
+d0_sleepdaily$DSQUAL5[d0_sleepdaily$B4AD520=="(5) VERY POOR"] <- "5"
+d0_sleepdaily$DSQUAL5 = as.numeric(d0_sleepdaily$DSQUAL5)
 
-dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(1) VERY GOOD"] <- "1"
-dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(2) 2"] <- "2"
-dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(3) 3"] <- "3"
-dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(4) 4"] <- "4"
-dsdailydiary$DSQUAL7[dsdailydiary$B4AD720=="(5) VERY POOR"] <- "5"
-dsdailydiary$DSQUAL7 = as.numeric(dsdailydiary$DSQUAL7)
+d0_sleepdaily$DSQUAL6[d0_sleepdaily$B4AD620=="(1) VERY GOOD"] <- "1"
+d0_sleepdaily$DSQUAL6[d0_sleepdaily$B4AD620=="(2) 2"] <- "2"
+d0_sleepdaily$DSQUAL6[d0_sleepdaily$B4AD620=="(3) 3"] <- "3"
+d0_sleepdaily$DSQUAL6[d0_sleepdaily$B4AD620=="(4) 4"] <- "4"
+d0_sleepdaily$DSQUAL6[d0_sleepdaily$B4AD620=="(5) VERY POOR"] <- "5"
+d0_sleepdaily$DSQUAL6 = as.numeric(d0_sleepdaily$DSQUAL6)
 
-dsdailydiary$DSQUAL <-  (dsdailydiary$DSQUAL1 + 
-                           dsdailydiary$DSQUAL2 +
-                           dsdailydiary$DSQUAL3 +
-                           dsdailydiary$DSQUAL4 +
-                           dsdailydiary$DSQUAL5 +
-                           dsdailydiary$DSQUAL6 +
-                           dsdailydiary$DSQUAL7)/7
+d0_sleepdaily$DSQUAL7[d0_sleepdaily$B4AD720=="(1) VERY GOOD"] <- "1"
+d0_sleepdaily$DSQUAL7[d0_sleepdaily$B4AD720=="(2) 2"] <- "2"
+d0_sleepdaily$DSQUAL7[d0_sleepdaily$B4AD720=="(3) 3"] <- "3"
+d0_sleepdaily$DSQUAL7[d0_sleepdaily$B4AD720=="(4) 4"] <- "4"
+d0_sleepdaily$DSQUAL7[d0_sleepdaily$B4AD720=="(5) VERY POOR"] <- "5"
+d0_sleepdaily$DSQUAL7 = as.numeric(d0_sleepdaily$DSQUAL7)
 
-dsdailydiary$TRSLEEP1[dsdailydiary$B4AD113=="(1) YES"] <- "1"
-dsdailydiary$TRSLEEP1[dsdailydiary$B4AD113=="(2) NO"] <- "2"
-dsdailydiary$TRSLEEP1 = as.numeric(dsdailydiary$TRSLEEP1)
+d0_sleepdaily$DSQUAL <-  (d0_sleepdaily$DSQUAL1 + 
+                           d0_sleepdaily$DSQUAL2 +
+                           d0_sleepdaily$DSQUAL3 +
+                           d0_sleepdaily$DSQUAL4 +
+                           d0_sleepdaily$DSQUAL5 +
+                           d0_sleepdaily$DSQUAL6 +
+                           d0_sleepdaily$DSQUAL7)/7
 
-dsdailydiary$TRSLEEP3[dsdailydiary$B4AD313=="(1) YES"] <- "1"
-dsdailydiary$TRSLEEP3[dsdailydiary$B4AD313=="(2) NO"] <- "2"
-dsdailydiary$TRSLEEP3 = as.numeric(dsdailydiary$TRSLEEP3)
+d0_sleepdaily$TRSLEEP1[d0_sleepdaily$B4AD113=="(1) YES"] <- "1"
+d0_sleepdaily$TRSLEEP1[d0_sleepdaily$B4AD113=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP1 = as.numeric(d0_sleepdaily$TRSLEEP1)
 
-dsdailydiary$TRSLEEP4[dsdailydiary$B4AD413=="(1) YES"] <- "1"
-dsdailydiary$TRSLEEP4[dsdailydiary$B4AD413=="(2) NO"] <- "2"
-dsdailydiary$TRSLEEP4 = as.numeric(dsdailydiary$TRSLEEP4)
+d0_sleepdaily$TRSLEEP3[d0_sleepdaily$B4AD313=="(1) YES"] <- "1"
+d0_sleepdaily$TRSLEEP3[d0_sleepdaily$B4AD313=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP3 = as.numeric(d0_sleepdaily$TRSLEEP3)
 
-dsdailydiary$TRSLEEP5[dsdailydiary$B4AD513=="(1) YES"] <- "1"
-dsdailydiary$TRSLEEP5[dsdailydiary$B4AD513=="(2) NO"] <- "2"
-dsdailydiary$TRSLEEP5 = as.numeric(dsdailydiary$TRSLEEP5)
+d0_sleepdaily$TRSLEEP4[d0_sleepdaily$B4AD413=="(1) YES"] <- "1"
+d0_sleepdaily$TRSLEEP4[d0_sleepdaily$B4AD413=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP4 = as.numeric(d0_sleepdaily$TRSLEEP4)
 
-dsdailydiary$TRSLEEP6[dsdailydiary$B4AD613=="(1) YES"] <- "1"
-dsdailydiary$TRSLEEP6[dsdailydiary$B4AD613=="(2) NO"] <- "2"
-dsdailydiary$TRSLEEP6 = as.numeric(dsdailydiary$TRSLEEP6)
+d0_sleepdaily$TRSLEEP5[d0_sleepdaily$B4AD513=="(1) YES"] <- "1"
+d0_sleepdaily$TRSLEEP5[d0_sleepdaily$B4AD513=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP5 = as.numeric(d0_sleepdaily$TRSLEEP5)
 
-dsdailydiary$TRSLEEP7[dsdailydiary$B4AD713=="(1) YES"] <- "1"
-dsdailydiary$TRSLEEP7[dsdailydiary$B4AD713=="(2) NO"] <- "2"
-dsdailydiary$TRSLEEP7 = as.numeric(dsdailydiary$TRSLEEP7)
+d0_sleepdaily$TRSLEEP6[d0_sleepdaily$B4AD613=="(1) YES"] <- "1"
+d0_sleepdaily$TRSLEEP6[d0_sleepdaily$B4AD613=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP6 = as.numeric(d0_sleepdaily$TRSLEEP6)
 
+d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(1) YES"] <- "1"
+d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP7 = as.numeric(d0_sleepdaily$TRSLEEP7)
 
-# I don't know the names of your actual variables, so I've just made some up below
-# I am hoping you can edit these examples with your real variable names and get them to run
+d0_sleepdaily$START1 = d0_sleepdaily(myData$B4AD18,"%Y-%m-%d %H:%M:%S")
+
+#####RESHAPING DATA#####
+
 
 # Create squared Sleep Duration term to use in regression for curvilinear (quadratic) relationship with cognition
 #  Get the mean SleepDuration, then subtract it from each person's score, then multiply the centered variables together
 
 
-#drop outlier EF
-ds_PSQ <- ds00_nomissing[ which(ds00_nomissing$B3TEFZ3 > -4.00), ]
+#Drop outlier EF
+PSQ <- d0_PSQ[ which(d0_PSQ$B3TEFZ3 > -4.00), ]
 
-
-ds_PSQ$DurationC <- ds_PSQ$B4S4 - 6.888
-ds_PSQ$Duration2 <- ds_PSQ$DurationC * ds_PSQ$DurationC
+#Sleep duration term
+PSQ$DurationC <- PSQ$B4S4 - 6.888
+PSQ$Duration2 <- PSQ$DurationC * PSQ$DurationC
 
 
 ########## DESCRIPTIVE STATISTICS
@@ -393,8 +395,9 @@ ds_PSQ$Duration2 <- ds_PSQ$DurationC * ds_PSQ$DurationC
 ##Run descriptive stats on ds00 (dataset with daily sleep variables dropped)
 
 #with psych pkg
-library(psych)
-describe(ds_PSQ)
+library(Hmisc)
+describe(PSQ)
+summary(PSQ)
 
 library(psych)
 describe(ds0daily_nomissing)
@@ -406,7 +409,7 @@ describe(ds0daily_nomissing)
 # GRAPHICAL look at data
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~B3TEMZ3+B3TEFZ3+SDis+B4S4+DurationC+Duration2,data=ds_PSQ, 
+pairs(~B3TEMZ3+B3TEFZ3+SDis+B4S4+DurationC+Duration2,data=PSQ, 
       main="Scatterplot Matrix")
 
 # what is the id of the person with a potential outlier?
@@ -414,19 +417,19 @@ ds <- ds_PSQ[order(ds_PSQ$B4S4,decreasing=T),]
 head(ds)
 
 # If you want to highlight just one Simple Scatterplot
-attach(ds00_nomissing)
-plot(B3TEMZ3, SDis, main="Scatterplot of Cognition by Sleep Disturbance", 
-     xlab="Sleep Quality", ylab="Cognitive Variable ", pch=19)
+attach(PSQ)
+plot(Duration2, B3TEMZ3, main="Scatterplot of Memory by Sleep Duration", 
+     xlab="Sleep Duration", ylab="Episodic Memory ", pch=19)
 
 # you can add  fit lines to your scatterplot with:
-abline(lm(B3TEMZ3~SDis), col="red") # regression line (y~x) 
+abline(lm(DurationC~B3TEMZ3), col="red") # regression line (y~x) 
 
 # If you want to make visually stunning graphs for your poster
 # you can try playing around with ggplot2: see  http://www.cookbook-r.com/Graphs/ 
 # but lets get the basics done first.
 
 # Multiple Linear Regression for Memory 
-fit <- lm(B3TEMZ3 ~ SDis + DurationC + Duration2, data=ds)
+fit <- lm(B3TEMZ3 ~ SDis + DurationC + Duration2, data=PSQ)
 summary(fit) # show results
 # Other useful functions 
 coefficients(fit) # model coefficients
@@ -442,7 +445,7 @@ plot(fit)
 
 
 # Multiple Linear Regression for EF 
-fit <- lm(B3TEFZ3 ~ SDis + DurationC + Duration2, data=ds)
+fit <- lm(B3TEFZ3 ~ WAKE, data=d0_sleepdaily)
 summary(fit) # show results
 # Other useful functions 
 coefficients(fit) # model coefficients
@@ -466,42 +469,42 @@ Squal <- as.numeric(levels(B4S5))[B4S5]
 # Hypothesis 1: Individuals who rate poorer sleep quality have poorer cognition relative to individuals who rate higher sleep quality.
 
 #memory
-fit_h1_1 <- lm(B3TEMZ3 ~ SQUAL, data=ds_PSQ)
+fit_h1_1 <- lm(B3TEMZ3 ~ SQUAL, data=PSQ)
 summary(fit_h1_1) # show results
 
 #EF
-fit_h1_2 <- lm(B3TEFZ3 ~ SQUAL, data=ds_PSQ)
+fit_h1_2 <- lm(B3TEFZ3 ~ SQUAL, data=PSQ)
 summary(fit_h1_2) # show results
 
 # Hypothesis 2: There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.
 
 #memory
-fit_h2_1 <- lm(B3TEMZ3 ~ DurationC + Duration2, data=ds_PSQ)
+fit_h2_1 <- lm(B3TEMZ3 ~ DurationC + Duration2, data=PSQ)
 summary(fit_h2_1) # show results
 
 #EF
-fit_h2_2 <- lm(B3TEFZ3 ~ Sdur1 + Sdur, data=ds_PSQ)
+fit_h2_2 <- lm(B3TEFZ3 ~ DurationC + Duration2, data=PSQ)
 summary(fit_h2_2) # show results
 
 # Hypothesis 3: There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores.
 
 #memory
-fit_h3_1 <- lm(B3TEMZ3 ~ SDis, data=ds_PSQ)
+fit_h3_1 <- lm(B3TEMZ3 ~ SDis, data=PSQ)
 summary(fit_h3_1) # show results
 
 #EF
-fit_h3_2 <- lm(B3TEFZ3 ~ SDis, data=ds_PSQ)
+fit_h3_2 <- lm(B3TEFZ3 ~ SDis, data=PSQ)
 summary(fit_h3_2) # show results
 
 
 #Hypothesis 4: Sleep duration and sleep disturbance together are better predictors of cognitive score compared to each predictor separately.
 
 #memory
-fit_h4_1 <- lm(B3TEMZ3 ~ SDis + Sdur1 + Sdur, data=ds_PSQ)
+fit_h4_1 <- lm(B3TEMZ3 ~ SDis + DurationC + Duration2, data=PSQ)
 summary(fit_h4_1) # show results
 
 #EF
-fit_h4_2 <- lm(B3TEFZ3 ~ SDis + Sdur1 + Sdur, data=ds_PSQ)
+fit_h4_2 <- lm(B3TEFZ3 ~ SDis + DurationC + Duration2, data=PSQ)
 summary(fit_h4_2) # show results
 
 #                       (Regress Cognition on sleep disturbance, sleep duration & sleepduration squared)
