@@ -404,6 +404,10 @@ PSQ <- d0_PSQ[ which(d0_PSQ$B3TEFZ3 > -4.00), ]
 PSQ$DurationC <- PSQ$B4S4 - 6.888
 PSQ$Duration2 <- PSQ$DurationC * PSQ$DurationC
 
+#Sleep duration term for dailysleep
+dailysleep$DailyDurationC <- dailysleep$DSdur.avg - 8.103
+dailysleep$DailyDuration2 <- dailysleep$DailyDurationC * dailysleep$DailyDurationC
+
 
 ########## DESCRIPTIVE STATISTICS
 
