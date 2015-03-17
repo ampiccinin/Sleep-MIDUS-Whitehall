@@ -14,6 +14,8 @@ library(Hmisc)
 library(foreign)
 data_CONTROLS <- spss.get("./Data/Raw/04652-0001-Data.sav", use.value.labels=TRUE)
 
+sleepdaily_Sdur <- spss.get("./Data/Raw/BIOMARKER_Sdur.SAV", use.value.labels=TRUE,)
+
 d0 <- merge(data_BIOMARKER,data_COGNITION,by="M2ID", all=TRUE)
 MIDUS <- merge(d0,data_CONTROLS,by="M2ID", all=TRUE)
 
@@ -90,6 +92,11 @@ d0_MIDUS_sleepdaily<- merge(d_MIDUS,d_MIDUS_sleepdaily,by="M2ID")
 #Create new dataset without missing data 
 d0_PSQ <- na.omit(d0_MIDUS_PSQ)
 d0_sleepdaily <- na.omit(d0_MIDUS_sleepdaily)
+
+###CREATE DATASET with avg sleep duration in d0_sleepdaily####
+
+dailysleepwithmissing <- merge(d0_sleepdaily,sleepdaily_Sdur,by="M2ID", all=TRUE)
+dailysleep <- na.omit(dailysleepwithmissing)
 
 
 
@@ -529,3 +536,6 @@ fit_h4_2 <- lm(B3TEFZ3 ~ SDis + DurationC + Duration2, data=PSQ)
 summary(fit_h4_2) # show results
 
 #                       (Regress Cognition on sleep disturbance, sleep duration & sleepduration squared)
+
+
+SdurPSQsort <- PSQ[order(-PSQ$B4S4),] 
