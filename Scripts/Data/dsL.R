@@ -199,32 +199,40 @@ d0_PSQ$SDis <- d0_PSQ$SDISA + d0_PSQ$SDISB + d0_PSQ$SDISC + d0_PSQ$SDISD + d0_PS
 
 #####CONVERTING FACTOR TO NUMERIC IN d0_sleepdaily#####
 
+d0_sleepdaily$MEDsum <- ((d0_sleepdaily$MED1 + 
+                          d0_sleepdaily$MED2 + 
+                          d0_sleepdaily$MED3 + 
+                          d0_sleepdaily$MED4 + 
+                          d0_sleepdaily$MED5 + 
+                          d0_sleepdaily$MED6 + 
+                          d0_sleepdaily$MED7))
+
 d0_sleepdaily$MED1[d0_sleepdaily$B4AD17=="(1) YES"] <- "1"
-d0_sleepdaily$MED1[d0_sleepdaily$B4AD17=="(2) NO"] <- "2"
+d0_sleepdaily$MED1[d0_sleepdaily$B4AD17=="(2) NO"] <- "0"
 d0_sleepdaily$MED1 = as.numeric(d0_sleepdaily$MED1)
 
 d0_sleepdaily$MED2[d0_sleepdaily$B4AD27=="(1) YES"] <- "1"
-d0_sleepdaily$MED2[d0_sleepdaily$B4AD27=="(2) NO"] <- "2"
+d0_sleepdaily$MED2[d0_sleepdaily$B4AD27=="(2) NO"] <- "0"
 d0_sleepdaily$MED2 = as.numeric(d0_sleepdaily$MED2)
 
 d0_sleepdaily$MED3[d0_sleepdaily$B4AD37=="(1) YES"] <- "1"
-d0_sleepdaily$MED3[d0_sleepdaily$B4AD37=="(2) NO"] <- "2"
+d0_sleepdaily$MED3[d0_sleepdaily$B4AD37=="(2) NO"] <- "0"
 d0_sleepdaily$MED3 = as.numeric(d0_sleepdaily$MED3)
 
 d0_sleepdaily$MED4[d0_sleepdaily$B4AD47=="(1) YES"] <- "1"
-d0_sleepdaily$MED4[d0_sleepdaily$B4AD47=="(2) NO"] <- "2"
+d0_sleepdaily$MED4[d0_sleepdaily$B4AD47=="(2) NO"] <- "0"
 d0_sleepdaily$MED4 = as.numeric(d0_sleepdaily$MED4)
 
 d0_sleepdaily$MED5[d0_sleepdaily$B4AD57=="(1) YES"] <- "1"
-d0_sleepdaily$MED5[d0_sleepdaily$B4AD57=="(2) NO"] <- "2"
+d0_sleepdaily$MED5[d0_sleepdaily$B4AD57=="(2) NO"] <- "0"
 d0_sleepdaily$MED5 = as.numeric(d0_sleepdaily$MED5)
 
 d0_sleepdaily$MED6[d0_sleepdaily$B4AD67=="(1) YES"] <- "1"
-d0_sleepdaily$MED6[d0_sleepdaily$B4AD67=="(2) NO"] <- "2"
+d0_sleepdaily$MED6[d0_sleepdaily$B4AD67=="(2) NO"] <- "0"
 d0_sleepdaily$MED6 = as.numeric(d0_sleepdaily$MED6)
 
 d0_sleepdaily$MED7[d0_sleepdaily$B4AD77=="(1) YES"] <- "1"
-d0_sleepdaily$MED7[d0_sleepdaily$B4AD77=="(2) NO"] <- "2"
+d0_sleepdaily$MED7[d0_sleepdaily$B4AD77=="(2) NO"] <- "0"
 d0_sleepdaily$MED7 = as.numeric(d0_sleepdaily$MED7)
 
 d0_sleepdaily$SDIFF1[d0_sleepdaily$B4AD110=="(1) VERY EASY"] <- "1"
