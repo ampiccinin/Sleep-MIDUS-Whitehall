@@ -365,28 +365,51 @@ d0_sleepdaily$DSQUAL <-  (d0_sleepdaily$DSQUAL1 +
                            d0_sleepdaily$DSQUAL7)/7
 
 d0_sleepdaily$TRSLEEP1[d0_sleepdaily$B4AD113=="(1) YES"] <- "1"
-d0_sleepdaily$TRSLEEP1[d0_sleepdaily$B4AD113=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP1[d0_sleepdaily$B4AD113=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP1 = as.numeric(d0_sleepdaily$TRSLEEP1)
 
 d0_sleepdaily$TRSLEEP3[d0_sleepdaily$B4AD313=="(1) YES"] <- "1"
-d0_sleepdaily$TRSLEEP3[d0_sleepdaily$B4AD313=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP3[d0_sleepdaily$B4AD313=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP3 = as.numeric(d0_sleepdaily$TRSLEEP3)
 
 d0_sleepdaily$TRSLEEP4[d0_sleepdaily$B4AD413=="(1) YES"] <- "1"
-d0_sleepdaily$TRSLEEP4[d0_sleepdaily$B4AD413=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP4[d0_sleepdaily$B4AD413=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP4 = as.numeric(d0_sleepdaily$TRSLEEP4)
 
 d0_sleepdaily$TRSLEEP5[d0_sleepdaily$B4AD513=="(1) YES"] <- "1"
-d0_sleepdaily$TRSLEEP5[d0_sleepdaily$B4AD513=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP5[d0_sleepdaily$B4AD513=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP5 = as.numeric(d0_sleepdaily$TRSLEEP5)
 
 d0_sleepdaily$TRSLEEP6[d0_sleepdaily$B4AD613=="(1) YES"] <- "1"
-d0_sleepdaily$TRSLEEP6[d0_sleepdaily$B4AD613=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP6[d0_sleepdaily$B4AD613=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP6 = as.numeric(d0_sleepdaily$TRSLEEP6)
 
 d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(1) YES"] <- "1"
-d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(2) NO"] <- "2"
+d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP7 = as.numeric(d0_sleepdaily$TRSLEEP7)
+
+
+
+d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(1) YES"] <- "1"
+d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(2) NO"] <- "0"
+d0_sleepdaily$TRSLEEP7 = as.numeric(d0_sleepdaily$TRSLEEP7)
+
+
+d0_sleepdaily$DSDifficulty <-  (d0_sleepdaily$B4AD110 + 
+                            d0_sleepdaily$B4AD210 +
+                            d0_sleepdaily$B4AD310 +
+                            d0_sleepdaily$B4AD410 +
+                            d0_sleepdaily$B4AD510 +
+                            d0_sleepdaily$B4AD610 +
+                            d0_sleepdaily$B4AD710 +
+                            
+                            d0_sleepdaily$B4AD111
+                            d0_sleepdaily$B4AD211 +
+                            d0_sleepdaily$B4AD311 +
+                            d0_sleepdaily$B4AD411 +
+                            d0_sleepdaily$B4AD511 +
+                            d0_sleepdaily$B4AD611 +
+                            d0_sleepdaily$B4AD711 +                              
 
 #####RESHAPING DATA#####
 
