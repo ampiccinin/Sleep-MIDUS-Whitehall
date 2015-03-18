@@ -420,6 +420,9 @@ dailysleep_outliersdroppedonsdur <- dailysleep[ which(dailysleep$DSdur.avg < 11)
 
 dailysleep_outliersdropped2 <- dailysleep_outliersdroppedonsdur[ which(dailysleep_outliersdroppedonsdur$B3TEMZ3 < 3), ]
 
+dailysleep_outliersdropped3 <- dailysleep_outliersdroppedonsdur[ which(dailysleep_outliersdroppedonsdur$DSleepDis < 70), ]
+
+dailyS <- dailysleep_outliersdropped3
 
 ########## DESCRIPTIVE STATISTICS
 
@@ -455,7 +458,7 @@ ds
 
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~B3TEMZ3+B3TEFZ3+DSleepDis+DSdur.avg+DailyDurationC+DailyDuration2,data=dailysleep_outliersdropped2, 
+pairs(~B3TEMZ3+B3TEFZ3+DSleepDis+DSdur.avg+DailyDurationC+DailyDuration2,data=dailysleep_outliersdropped3, 
       main="Scatterplot Matrix")
 
 # what is the id of the person with a potential outlier?
@@ -521,6 +524,11 @@ summary(fit_h1_1) # show results
 #EF
 fit_h1_2 <- lm(B3TEFZ3 ~ SQUAL, data=PSQ)
 summary(fit_h1_2) # show results
+
+#Daily memory
+dailyfit_h1_1 <- lm(B3TEMZ3 ~ SQUAL, data=PSQ)
+summary(dailyfit_h1_1) # show results
+
 
 # Hypothesis 2: There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.
 
