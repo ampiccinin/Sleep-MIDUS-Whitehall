@@ -93,13 +93,6 @@ d0_MIDUS_sleepdaily<- merge(d_MIDUS,d_MIDUS_sleepdaily,by="M2ID")
 d0_PSQ <- na.omit(d0_MIDUS_PSQ)
 d0_sleepdaily <- na.omit(d0_MIDUS_sleepdaily)
 
-###CREATE DATASET with avg sleep duration in d0_sleepdaily####
-
-dailysleepwithmissing <- merge(d0_sleepdaily,sleepdaily_Sdur,by="M2ID", all=TRUE)
-dailysleep <- na.omit(dailysleepwithmissing)
-
-
-
 #####CONVERTING FACTOR TO NUMERIC IN d0_PSQ#####
 
 #Convert GENDER to numeric in d0_PSQ
@@ -297,7 +290,7 @@ d0_sleepdaily$SDIFF <- (d0_sleepdaily$SDIFF1 +
                          d0_sleepdaily$SDIFF4 + 
                          d0_sleepdaily$SDIFF5 + 
                          d0_sleepdaily$SDIFF6 + 
-                         d0_sleepdaily$SDIFF7)/7
+                         d0_sleepdaily$SDIFF7)
 
 d0_sleepdaily$WAKE <-  (d0_sleepdaily$B4AD111 + 
                          d0_sleepdaily$B4AD211 +
@@ -305,7 +298,7 @@ d0_sleepdaily$WAKE <-  (d0_sleepdaily$B4AD111 +
                          d0_sleepdaily$B4AD411 +
                          d0_sleepdaily$B4AD511 +
                          d0_sleepdaily$B4AD611 +
-                         d0_sleepdaily$B4AD711)/7
+                         d0_sleepdaily$B4AD711)
 
 d0_sleepdaily$DSQUAL1[d0_sleepdaily$B4AD120=="(1) VERY GOOD"] <- "1"
 d0_sleepdaily$DSQUAL1[d0_sleepdaily$B4AD120=="(2) 2"] <- "2"
@@ -368,6 +361,10 @@ d0_sleepdaily$TRSLEEP1[d0_sleepdaily$B4AD113=="(1) YES"] <- "1"
 d0_sleepdaily$TRSLEEP1[d0_sleepdaily$B4AD113=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP1 = as.numeric(d0_sleepdaily$TRSLEEP1)
 
+d0_sleepdaily$TRSLEEP2[d0_sleepdaily$B4AD213=="1"] <- "1"
+d0_sleepdaily$TRSLEEP2[d0_sleepdaily$B4AD213=="2"] <- "0"
+d0_sleepdaily$TRSLEEP2 = as.numeric(d0_sleepdaily$TRSLEEP2)
+
 d0_sleepdaily$TRSLEEP3[d0_sleepdaily$B4AD313=="(1) YES"] <- "1"
 d0_sleepdaily$TRSLEEP3[d0_sleepdaily$B4AD313=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP3 = as.numeric(d0_sleepdaily$TRSLEEP3)
@@ -388,28 +385,15 @@ d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(1) YES"] <- "1"
 d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(2) NO"] <- "0"
 d0_sleepdaily$TRSLEEP7 = as.numeric(d0_sleepdaily$TRSLEEP7)
 
+d0_sleepdaily$TRSLEEP = (d0_sleepdaily$TRSLEEP1 + d0_sleepdaily$TRSLEEP2 + d0_sleepdaily$TRSLEEP3 + d0_sleepdaily$TRSLEEP4 + d0_sleepdaily$TRSLEEP5 + d0_sleepdaily$TRSLEEP6 + d0_sleepdaily$TRSLEEP7)
 
+d0_sleepdaily$DSleepDis <- (d0_sleepdaily$SDIFF + d0_sleepdaily$WAKE + d0_sleepdaily$TRSLEEP)
 
-d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(1) YES"] <- "1"
-d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(2) NO"] <- "0"
-d0_sleepdaily$TRSLEEP7 = as.numeric(d0_sleepdaily$TRSLEEP7)
+###CREATE DATASET with avg sleep duration in d0_sleepdaily####
 
+dailysleepwithmissing <- merge(d0_sleepdaily,sleepdaily_Sdur,by="M2ID", all=TRUE)
+dailysleep <- na.omit(dailysleepwithmissing)
 
-d0_sleepdaily$DSDifficulty <-  (d0_sleepdaily$B4AD110 + 
-                            d0_sleepdaily$B4AD210 +
-                            d0_sleepdaily$B4AD310 +
-                            d0_sleepdaily$B4AD410 +
-                            d0_sleepdaily$B4AD510 +
-                            d0_sleepdaily$B4AD610 +
-                            d0_sleepdaily$B4AD710 +
-                            
-                            d0_sleepdaily$B4AD111
-                            d0_sleepdaily$B4AD211 +
-                            d0_sleepdaily$B4AD311 +
-                            d0_sleepdaily$B4AD411 +
-                            d0_sleepdaily$B4AD511 +
-                            d0_sleepdaily$B4AD611 +
-                            d0_sleepdaily$B4AD711 +                              
 
 #####RESHAPING DATA#####
 
@@ -471,7 +455,7 @@ ds
 
 
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~B3TEMZ3+B3TEFZ3+DSdur.avg+DailyDurationC+DailyDuration2,data=dailysleep_outliersdropped2, 
+pairs(~B3TEMZ3+B3TEFZ3+DSleepDis+DSdur.avg+DailyDurationC+DailyDuration2,data=dailysleep_outliersdropped2, 
       main="Scatterplot Matrix")
 
 # what is the id of the person with a potential outlier?
