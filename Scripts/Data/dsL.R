@@ -388,8 +388,6 @@ d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(1) YES"] <- "1"
 d0_sleepdaily$TRSLEEP7[d0_sleepdaily$B4AD713=="(2) NO"] <- "2"
 d0_sleepdaily$TRSLEEP7 = as.numeric(d0_sleepdaily$TRSLEEP7)
 
-d0_sleepdaily$START1 = d0_sleepdaily(myData$B4AD18,"%Y-%m-%d %H:%M:%S")
-
 #####RESHAPING DATA#####
 
 
@@ -405,8 +403,15 @@ PSQ$DurationC <- PSQ$B4S4 - 6.888
 PSQ$Duration2 <- PSQ$DurationC * PSQ$DurationC
 
 #Sleep duration term for dailysleep
-dailysleep$DailyDurationC <- dailysleep$DSdur.avg - 8.103
+dailysleep$DailyDurationC <- dailysleep$DSdur.avg - 7.863
 dailysleep$DailyDuration2 <- dailysleep$DailyDurationC * dailysleep$DailyDurationC
+
+
+#Drop outlier sleep duration on dailysleep
+
+dailysleep_outliersdroppedonsdur <- dailysleep[ which(dailysleep$DSdur.avg < 11), ]
+
+dailysleep_outliersdropped2 <- dailysleep_outliersdroppedonsdur[ which(dailysleep_outliersdroppedonsdur$B3TEMZ3 < 3), ]
 
 
 ########## DESCRIPTIVE STATISTICS
@@ -440,8 +445,10 @@ ds
 
 # GRAPHICAL look at data
 
+
+
 # Basic Scatterplot Matrix - so you can scan them all quickly
-pairs(~B3TEMZ3+B3TEFZ3+SDis+B4S4+DurationC+Duration2,data=PSQ, 
+pairs(~B3TEMZ3+B3TEFZ3+DSdur.avg+DailyDurationC+DailyDuration2,data=dailysleep_outliersdropped2, 
       main="Scatterplot Matrix")
 
 # what is the id of the person with a potential outlier?
@@ -511,12 +518,20 @@ summary(fit_h1_2) # show results
 # Hypothesis 2: There is an association between sleep duration and cognition in that sleep duration predicts cognitive scores.
 
 #memory
-fit_h2_1 <- lm(B3TEMZ3 ~ DurationC + Duration2, data=PSQ)
+fit_h2_1 <- lm(B3TEMZ3 ~ + DurationC + Duration2, data=PSQ)
 summary(fit_h2_1) # show results
 
 #EF
 fit_h2_2 <- lm(B3TEFZ3 ~ DurationC + Duration2, data=PSQ)
 summary(fit_h2_2) # show results
+
+#memory
+dailyfit_h2_1 <- lm(B3TEMZ3 ~ DSdur.avg + DailyDurationC + DailyDuration2, data=dailysleep_outliersdropped2)
+summary(dailyfit_h2_1) # show results
+
+#EF
+dailyfit_h2_2 <- lm(B3TEFZ3 ~ DailyDurationC + DailyDuration2, data=dailysleep_outliersdropped2)
+summary(dailyfit_h2_2) # show results
 
 # Hypothesis 3: There is an association between sleep disturbance and cognition in that sleep disturbance predicts cognitive scores.
 
@@ -541,5 +556,3 @@ summary(fit_h4_2) # show results
 
 #                       (Regress Cognition on sleep disturbance, sleep duration & sleepduration squared)
 
-
-SdurPSQsort <- PSQ[order(-PSQ$B4S4),] 
